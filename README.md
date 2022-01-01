@@ -1,17 +1,19 @@
 # Overview
 Bitcoin DX (BCDX) is an open source cryptocurrency on it’s own independent blockchain. It is a hard-fork of Bitcoin Core 0.22 and built to be feature-rich, reliable and secure.
 
-Max Volume	21,000,000,000
+Source code has been generalized, allowing forking without too much hassle. Simply adjust your parameters in chainparams.cpp, amount.h and validation.cpp before you fire away.
 
-Algorithm	Sha256
+Max Volume: 21,000,000,000
 
-Version	22.0
+Algorithm:	Sha256
 
-Blockchain Interval	10 Minutes
+Version:	22.0
 
-Blockchain Rewards	59,931.00
+Blockchain Interval:	10 Minutes
 
-Halving Interval	~2 Years
+Blockchain Rewards:	59,931.00
+
+Halving Interval:	~2 Years
 
 # Website
 https://bitcoin-dx.org
@@ -34,12 +36,10 @@ This formulae is very desirable for blockchain miners as it will incentivize rew
 # Network
 Bitcoin DX uses the following TCP ports.
 
-Purpose	Protocol	Port
+Main Net:	TCP	8333
 
-Main Net	TCP	8333
+Test Net:	TCP	18333
 
-Test Net	TCP	18333
+Sig Net Test:	TCP	38333
 
-Sig Net Test	TCP	38333
-
-Reg Test	TCP	18444
+Reg Test:	TCP	18444
