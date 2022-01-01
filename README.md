@@ -1,12 +1,3 @@
-# bitcoindx
-Bitcoin DX :: Source Code
-
-# Website
-https://bitcoin-dx.org
-
-# Discord
-https://discord.gg/QsBQEFWdqb
-
 # Overview
 Bitcoin DX (BCDX) is an open source cryptocurrency on it’s own independent blockchain. It is a hard-fork of Bitcoin Core 0.22 and built to be feature-rich, reliable and secure.
 
@@ -16,6 +7,15 @@ Version	22.0
 Blockchain Interval	10 Minutes
 Blockchain Rewards	59,931.00
 Halving Interval	~2 Years
+
+# Website
+https://bitcoin-dx.org
+
+# Discord
+https://discord.gg/QsBQEFWdqb
+
+# Blockchain Explorer
+https://explorer.bitcoindeluxe.org
 
 #Economic Sustainability
 8,400,000,000 BCDX have been pre-mined in order to curb immediate demand, which means 60% of max volume can be mined.
