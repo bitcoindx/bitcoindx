@@ -17,7 +17,7 @@ https://discord.gg/QsBQEFWdqb
 # Blockchain Explorer
 https://explorer.bitcoindeluxe.org
 
-#Economic Sustainability
+# Economic Sustainability
 8,400,000,000 BCDX have been pre-mined in order to curb immediate demand, which means 60% of max volume can be mined.
 
 The algorithm used to form a homogeneous economy is this:
