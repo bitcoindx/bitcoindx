@@ -1,82 +1,45 @@
-BitcoinDX Core integration/staging tree
-=====================================
+# Overview
+Bitcoin DX (BCDX) is an open source cryptocurrency on it’s own independent blockchain. It is a hard-fork of Bitcoin Core 0.22 and built to be feature-rich, reliable and secure.
 
+Source code has been generalized, allowing forking without too much hassle. Simply adjust your parameters in chainparams.cpp, amount.h and validation.cpp before you fire away.
+
+Max Volume: 21,000,000,000
+
+Algorithm:	Sha256
+
+Version:	22.0
+
+Blockchain Interval:	10 Minutes
+
+Blockchain Rewards:	59,931.00
+
+Halving Interval:	~2 Years
+
+# Website
 https://bitcoin-dx.org
 
-For an immediately usable, binary version of the BitcoinDX Core software, see
-https://bitcoin-dx.org/en/download/.
+# Discord
+https://discord.gg/QsBQEFWdqb
 
-Further information about BitcoinDX Core is available in the [doc folder](/doc).
+# Blockchain Explorer
+https://explorer.bitcoindeluxe.org
 
-What is BitcoinDX?
-----------------
+# Economic Sustainability
+8,400,000,000 BCDX have been pre-mined in order to curb immediate demand, which means 60% of max volume can be mined.
 
-BitcoinDX is an experimental digital currency that enables instant payments to
-anyone, anywhere in the world. BitcoinDX uses peer-to-peer technology to operate
-with no central authority: managing transactions and issuing money are carried
-out collectively by the network. BitcoinDX Core is the name of open source
-software which enables the use of this currency.
+The algorithm used to form a homogeneous economy is this:
+MINE_REWARDS = MAX_VOLUME - PRE_MINE.
+24_HOURS*6_BLOCKS_HOURLY = 144 blocks per day * 365 = 52560 blocks per annum * 59931 BCDX = 3,149,973,360 BCDX mining rewards per annum / 2 yearly halving interval ongoing.
 
-For more information read the original BitcoinDX whitepaper.
+This formulae is very desirable for blockchain miners as it will incentivize reward payouts for up to 80 years, reaching target volume cap.
 
-License
--------
+# Network
+Bitcoin DX uses the following TCP ports.
 
-BitcoinDX Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
-information or see https://opensource.org/licenses/MIT.
+Main Net:	TCP	8333
 
-Development Process
--------------------
+Test Net:	TCP	18333
 
-The `master` branch is regularly built (see `doc/build-*.md` for instructions) and tested, but it is not guaranteed to be
-completely stable. [Tags](https://github.com/bitcoindx/bitcoindx/tags) are created
-regularly from release branches to indicate new official, stable release versions of BitcoinDX Core.
+Sig Net Test:	TCP	38333
 
-The https://github.com/bitcoindx-core/gui repository is used exclusively for the
-development of the GUI. Its master branch is identical in all monotree
-repositories. Release branches and tags do not exist, so please do not fork
-that repository unless it is for development reasons.
-
-The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md)
-and useful hints for developers can be found in [doc/developer-notes.md](doc/developer-notes.md).
-
-Testing
--------
-
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test on short notice. Please be patient and help out by testing
-other people's pull requests, and remember this is a security-critical project where any mistake might cost people
-lots of money.
-
-### Automated Testing
-
-Developers are strongly encouraged to write [unit tests](src/test/README.md) for new code, and to
-submit new unit tests for old code. Unit tests can be compiled and run
-(assuming they weren't disabled in configure) with: `make check`. Further details on running
-and extending unit tests can be found in [/src/test/README.md](/src/test/README.md).
-
-There are also [regression and integration tests](/test), written
-in Python.
-These tests can be run (if the [test dependencies](/test) are installed) with: `test/functional/test_runner.py`
-
-The CI (Continuous Integration) systems make sure that every pull request is built for Windows, Linux, and macOS,
-and that unit/sanity tests are run automatically.
-
-### Manual Quality Assurance (QA) Testing
-
-Changes should be tested by somebody other than the developer who wrote the
-code. This is especially important for large or high-risk changes. It is useful
-to add a test plan to the pull request description if testing the changes is
-not straightforward.
-
-Translations
-------------
-
-Changes to translations as well as new translations can be submitted to
-[BitcoinDX Core's Transifex page](https://www.transifex.com/bitcoindx/bitcoindx/).
-
-Translations are periodically pulled from Transifex and merged into the git repository. See the
-[translation process](doc/translation_process.md) for details on how this works.
-
-**Important**: We do not accept translation changes as GitHub pull requests because the next
-pull from Transifex would automatically overwrite them again.
+Reg Test:	TCP	18444
