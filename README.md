@@ -29,7 +29,7 @@ https://explorer.bitcoindeluxe.org
 
 The algorithm used to form a homogeneous economy is this:
 MINE_REWARDS = MAX_VOLUME - PRE_MINE.
-24_HOURS*6_BLOCKS_HOURLY = 144 blocks per day * 365 = 52560 blocks per annum * 59931 BCDX = 3,149,973,360 BCDX mining rewards per annum / 2 yearly halving interval ongoing.
+24_HOURS*6_BLOCKS_HOURLY = 144 blocks per day * 365 = 52560 blocks per annum * 59931 BCDX = 3,149,973,360 BCDX mining rewards per annum / 105120 block halving interval.
 
 This formulae is very desirable for blockchain miners as it will incentivize reward payouts for up to 80 years, reaching target volume cap.
 
