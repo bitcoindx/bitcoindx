@@ -13,7 +13,7 @@ Blockchain Interval:	10 Minutes
 
 Blockchain Rewards:	59,931.00
 
-Halving Interval:	105120 Blocks
+Halving Interval:	105,120 Blocks
 
 # Website
 https://bitcoin-dx.org
