@@ -3,40 +3,40 @@
 # backward compatibility for existing gentoo layout 
 #
 if [ -d "/var/lib/bitcoindx/.bitcoindx" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/bitcoindx/.bitcoindx"
+	BITCOINDXD_DEFAULT_DATADIR="/var/lib/bitcoindx/.bitcoindx"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/bitcoindxd"
+	BITCOINDXD_DEFAULT_DATADIR="/var/lib/bitcoindxd"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/bitcoindx/bitcoindx.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/bitcoindxd}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/bitcoindxd.pid}
-BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-${BITCOIN_USER:-bitcoindx}}
-BITCOIND_GROUP=${BITCOIND_GROUP:-bitcoindx}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/bitcoindxd}
-BITCOIND_NICE=${BITCOIND_NICE:-${NICELEVEL:-0}}
-BITCOIND_OPTS="${BITCOIND_OPTS:-${BITCOIN_OPTS}}"
+BITCOINDXD_CONFIGFILE=${BITCOINDXD_CONFIGFILE:-/etc/bitcoindx/bitcoindx.conf}
+BITCOINDXD_PIDDIR=${BITCOINDXD_PIDDIR:-/var/run/bitcoindxd}
+BITCOINDXD_PIDFILE=${BITCOINDXD_PIDFILE:-${BITCOINDXD_PIDDIR}/bitcoindxd.pid}
+BITCOINDXD_DATADIR=${BITCOINDXD_DATADIR:-${BITCOINDXD_DEFAULT_DATADIR}}
+BITCOINDXD_USER=${BITCOINDXD_USER:-${BITCOIN_USER:-bitcoindx}}
+BITCOINDXD_GROUP=${BITCOINDXD_GROUP:-bitcoindx}
+BITCOINDXD_BIN=${BITCOINDXD_BIN:-/usr/bin/bitcoindxd}
+BITCOINDXD_NICE=${BITCOINDXD_NICE:-${NICELEVEL:-0}}
+BITCOINDXD_OPTS="${BITCOINDXD_OPTS:-${BITCOIN_OPTS}}"
 
 name="BitcoinDX Core Daemon"
 description="BitcoinDX cryptocurrency P2P network daemon"
 
 command="/usr/bin/bitcoindxd"
-command_args="-pid=\"${BITCOIND_PIDFILE}\" \
-		-conf=\"${BITCOIND_CONFIGFILE}\" \
-		-datadir=\"${BITCOIND_DATADIR}\" \
+command_args="-pid=\"${BITCOINDXD_PIDFILE}\" \
+		-conf=\"${BITCOINDXD_CONFIGFILE}\" \
+		-datadir=\"${BITCOINDXD_DATADIR}\" \
 		-daemon \
-		${BITCOIND_OPTS}"
+		${BITCOINDXD_OPTS}"
 
-required_files="${BITCOIND_CONFIGFILE}"
-start_stop_daemon_args="-u ${BITCOIND_USER} \
-			-N ${BITCOIND_NICE} -w 2000"
-pidfile="${BITCOIND_PIDFILE}"
+required_files="${BITCOINDXD_CONFIGFILE}"
+start_stop_daemon_args="-u ${BITCOINDXD_USER} \
+			-N ${BITCOINDXD_NICE} -w 2000"
+pidfile="${BITCOINDXD_PIDFILE}"
 
 # The retry schedule to use when stopping the daemon. Could be either
 # a timeout in seconds or multiple signal/timeout pairs (like
 # "SIGKILL/180 SIGTERM/300")
-retry="${BITCOIND_SIGTERM_TIMEOUT}"
+retry="${BITCOINDXD_SIGTERM_TIMEOUT}"
 
 depend() {
 	need localmount net
@@ -50,30 +50,30 @@ start_pre() {
 	checkpath \
 	-d \
 	--mode 0750 \
-	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
-	"${BITCOIND_DATADIR}"
+	--owner "${BITCOINDXD_USER}:${BITCOINDXD_GROUP}" \
+	"${BITCOINDXD_DATADIR}"
 
 	checkpath \
 	-d \
 	--mode 0755 \
-	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
-	"${BITCOIND_PIDDIR}"
+	--owner "${BITCOINDXD_USER}:${BITCOINDXD_GROUP}" \
+	"${BITCOINDXD_PIDDIR}"
 
 	checkpath -f \
-	-o "${BITCOIND_USER}:${BITCOIND_GROUP}" \
+	-o "${BITCOINDXD_USER}:${BITCOINDXD_GROUP}" \
 	-m 0660 \
-	"${BITCOIND_CONFIGFILE}"
+	"${BITCOINDXD_CONFIGFILE}"
 
 	checkconfig || return 1
 }
 
 checkconfig()
 {
-	if grep -qs '^rpcuser=' "${BITCOIND_CONFIGFILE}" && \
-		! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
+	if grep -qs '^rpcuser=' "${BITCOINDXD_CONFIGFILE}" && \
+		! grep -qs '^rpcpassword=' "${BITCOINDXD_CONFIGFILE}" ; then
 		eerror ""
 		eerror "ERROR: You must set a secure rpcpassword to run bitcoindxd."
-		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
+		eerror "The setting must appear in ${BITCOINDXD_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
 		eerror "and must not be the same as the rpcuser setting."

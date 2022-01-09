@@ -371,7 +371,7 @@ def main():
 
     logging.debug("Temporary test directory at %s" % tmpdir)
 
-    enable_bitcoindxd = config["components"].getboolean("ENABLE_BITCOIND")
+    enable_bitcoindxd = config["components"].getboolean("ENABLE_BITCOINDXD")
 
     if not enable_bitcoindxd:
         print("No functional tests to run.")

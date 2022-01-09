@@ -86,7 +86,7 @@ noinst_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
-if BUILD_BITCOIND
+if BUILD_BITCOINDXD
   bin_PROGRAMS += bitcoindxd
 endif
 

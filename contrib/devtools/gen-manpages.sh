@@ -10,18 +10,18 @@ BUILDDIR=${BUILDDIR:-$TOPDIR}
 BINDIR=${BINDIR:-$BUILDDIR/src}
 MANDIR=${MANDIR:-$TOPDIR/doc/man}
 
-BITCOIND=${BITCOIND:-$BINDIR/bitcoindxd}
+BITCOINDXD=${BITCOINDXD:-$BINDIR/bitcoindxd}
 BITCOINCLI=${BITCOINCLI:-$BINDIR/bitcoindx-cli}
 BITCOINTX=${BITCOINTX:-$BINDIR/bitcoindx-tx}
 WALLET_TOOL=${WALLET_TOOL:-$BINDIR/bitcoindx-wallet}
 BITCOINUTIL=${BITCOINQT:-$BINDIR/bitcoindx-util}
 BITCOINQT=${BITCOINQT:-$BINDIR/qt/bitcoindx-qt}
 
-[ ! -x $BITCOIND ] && echo "$BITCOIND not found or not executable." && exit 1
+[ ! -x $BITCOINDXD ] && echo "$BITCOINDXD not found or not executable." && exit 1
 
 # Don't allow man pages to be generated for binaries built from a dirty tree
 DIRTY=""
-for cmd in $BITCOIND $BITCOINCLI $BITCOINTX $WALLET_TOOL $BITCOINUTIL $BITCOINQT; do
+for cmd in $BITCOINDXD $BITCOINCLI $BITCOINTX $WALLET_TOOL $BITCOINUTIL $BITCOINQT; do
   VERSION_OUTPUT=$($cmd --version)
   if [[ $VERSION_OUTPUT == *"dirty"* ]]; then
     DIRTY="${DIRTY}${cmd}\n"
@@ -42,9 +42,9 @@ read -r -a BTCVER <<< "$($BITCOINCLI --version | head -n1 | awk -F'[ -]' '{ prin
 # This gets autodetected fine for bitcoindxd if --version-string is not set,
 # but has different outcomes for bitcoindx-qt and bitcoindx-cli.
 echo "[COPYRIGHT]" > footer.h2m
-$BITCOIND --version | sed -n '1!p' >> footer.h2m
+$BITCOINDXD --version | sed -n '1!p' >> footer.h2m
 
-for cmd in $BITCOIND $BITCOINCLI $BITCOINTX $WALLET_TOOL $BITCOINUTIL $BITCOINQT; do
+for cmd in $BITCOINDXD $BITCOINCLI $BITCOINTX $WALLET_TOOL $BITCOINUTIL $BITCOINQT; do
   cmdname="${cmd##*/}"
   help2man -N --version-string=${BTCVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
 done

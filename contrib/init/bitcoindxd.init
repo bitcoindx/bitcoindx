@@ -19,14 +19,14 @@ fi
 RETVAL=0
 
 prog=bitcoindxd
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/bitcoindxd
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/bitcoindxd}
+# you can override the lockfile via BITCOINDXD_LOCKFILE in /etc/sysconfig/bitcoindxd
+lockfile=${BITCOINDXD_LOCKFILE-/var/lock/subsys/bitcoindxd}
 
-# bitcoindxd defaults to /usr/bin/bitcoindxd, override with BITCOIND_BIN
-bitcoindxd=${BITCOIND_BIN-/usr/bin/bitcoindxd}
+# bitcoindxd defaults to /usr/bin/bitcoindxd, override with BITCOINDXD_BIN
+bitcoindxd=${BITCOINDXD_BIN-/usr/bin/bitcoindxd}
 
-# bitcoindxd opts default to -disablewallet, override with BITCOIND_OPTS
-bitcoindxd_opts=${BITCOIND_OPTS--disablewallet}
+# bitcoindxd opts default to -disablewallet, override with BITCOINDXD_OPTS
+bitcoindxd_opts=${BITCOINDXD_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "

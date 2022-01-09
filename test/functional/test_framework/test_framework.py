@@ -237,7 +237,7 @@ class BitcoinDXTestFramework(metaclass=BitcoinDXTestMetaClass):
             "src",
             "bitcoindx-cli" + config["environment"]["EXEEXT"],
         )
-        self.options.bitcoindxd = os.getenv("BITCOIND", default=fname_bitcoindxd)
+        self.options.bitcoindxd = os.getenv("BITCOINDXD", default=fname_bitcoindxd)
         self.options.bitcoindxcli = os.getenv("BITCOINCLI", default=fname_bitcoindxcli)
 
         os.environ['PATH'] = os.pathsep.join([

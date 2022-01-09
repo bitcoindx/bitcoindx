@@ -27,7 +27,7 @@ make -C depends NO_QT=1 MULTIPROCESS=1
 CONFIG_SITE=$PWD/depends/x86_64-pc-linux-gnu/share/config.site ./configure
 make
 src/bitcoindx-node -regtest -printtoconsole -debug=ipc
-BITCOIND=bitcoindx-node test/functional/test_runner.py
+BITCOINDXD=bitcoindx-node test/functional/test_runner.py
 ```
 
 The configure script will pick up settings and library locations from the depends directory, so there is no need to pass `--enable-multiprocess` as a separate flag when using the depends system (it's controlled by the `MULTIPROCESS=1` option).

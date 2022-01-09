@@ -1,10 +1,10 @@
 AC_PREREQ([2.69])
 define(_CLIENT_VERSION_MAJOR, 22)
 define(_CLIENT_VERSION_MINOR, 0)
-define(_CLIENT_VERSION_BUILD, 0)
+define(_CLIENT_VERSION_BUILD, 1)
 define(_CLIENT_VERSION_RC, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
-define(_COPYRIGHT_YEAR, 2021)
+define(_COPYRIGHT_YEAR, 2022)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[BitcoinDX Core]])
 AC_INIT([BitcoinDX Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_BUILD)m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/bitcoindx/bitcoindx/issues],[bitcoindx],[https://bitcoin-dx.org/])
@@ -1572,7 +1572,7 @@ if test x$build_multiprocess != xno; then
 fi
 
 AC_MSG_CHECKING([whether to build bitcoindxd])
-AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoindxd = xyes])
+AM_CONDITIONAL([BUILD_BITCOINDXD], [test x$build_bitcoindxd = xyes])
 AC_MSG_RESULT($build_bitcoindxd)
 
 AC_MSG_CHECKING([whether to build bitcoindx-cli])
