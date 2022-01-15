@@ -153,7 +153,7 @@
         <translation type="unfinished">საფულის დაშიფრვის დადასტურება</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINDXS&lt;/b&gt;!</source>
         <translation type="unfinished">გაფრთხილება: თუ თქვენ დაშიფრავთ თქვენს საფულეს და ამის შემდეგ დაკარგავთ გასაშიფრ ფრაზას, &lt;b&gt;თქვენ დაკარგავთ ყველა ბიტკოინს!&lt;/b&gt;</translation>
     </message>
     <message>

@@ -24,42 +24,42 @@ else
 LIBUNIVALUE = $(UNIVALUE_LIBS)
 endif
 
-BITCOIN_INCLUDES=-I$(builddir) -I$(srcdir)/secp256k1/include $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
+BITCOINDX_INCLUDES=-I$(builddir) -I$(srcdir)/secp256k1/include $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
 
-BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
+BITCOINDX_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBBITCOIN_SERVER=libbitcoindx_server.a
-LIBBITCOIN_COMMON=libbitcoindx_common.a
-LIBBITCOIN_CONSENSUS=libbitcoindx_consensus.a
-LIBBITCOIN_CLI=libbitcoindx_cli.a
-LIBBITCOIN_UTIL=libbitcoindx_util.a
-LIBBITCOIN_CRYPTO_BASE=crypto/libbitcoindx_crypto_base.a
-LIBBITCOINQT=qt/libbitcoindxqt.a
+LIBBITCOINDX_SERVER=libbitcoindx_server.a
+LIBBITCOINDX_COMMON=libbitcoindx_common.a
+LIBBITCOINDX_CONSENSUS=libbitcoindx_consensus.a
+LIBBITCOINDX_CLI=libbitcoindx_cli.a
+LIBBITCOINDX_UTIL=libbitcoindx_util.a
+LIBBITCOINDX_CRYPTO_BASE=crypto/libbitcoindx_crypto_base.a
+LIBBITCOINDXQT=qt/libbitcoindxqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBBITCOIN_ZMQ=libbitcoindx_zmq.a
+LIBBITCOINDX_ZMQ=libbitcoindx_zmq.a
 endif
-if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libbitcoindxconsensus.la
+if BUILD_BITCOINDX_LIBS
+LIBBITCOINDXCONSENSUS=libbitcoindxconsensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libbitcoindx_wallet.a
-LIBBITCOIN_WALLET_TOOL=libbitcoindx_wallet_tool.a
+LIBBITCOINDX_WALLET=libbitcoindx_wallet.a
+LIBBITCOINDX_WALLET_TOOL=libbitcoindx_wallet_tool.a
 endif
 
-LIBBITCOIN_CRYPTO= $(LIBBITCOIN_CRYPTO_BASE)
+LIBBITCOINDX_CRYPTO= $(LIBBITCOINDX_CRYPTO_BASE)
 if ENABLE_SSE41
-LIBBITCOIN_CRYPTO_SSE41 = crypto/libbitcoindx_crypto_sse41.a
-LIBBITCOIN_CRYPTO += $(LIBBITCOIN_CRYPTO_SSE41)
+LIBBITCOINDX_CRYPTO_SSE41 = crypto/libbitcoindx_crypto_sse41.a
+LIBBITCOINDX_CRYPTO += $(LIBBITCOINDX_CRYPTO_SSE41)
 endif
 if ENABLE_AVX2
-LIBBITCOIN_CRYPTO_AVX2 = crypto/libbitcoindx_crypto_avx2.a
-LIBBITCOIN_CRYPTO += $(LIBBITCOIN_CRYPTO_AVX2)
+LIBBITCOINDX_CRYPTO_AVX2 = crypto/libbitcoindx_crypto_avx2.a
+LIBBITCOINDX_CRYPTO += $(LIBBITCOINDX_CRYPTO_AVX2)
 endif
 if ENABLE_SHANI
-LIBBITCOIN_CRYPTO_SHANI = crypto/libbitcoindx_crypto_shani.a
-LIBBITCOIN_CRYPTO += $(LIBBITCOIN_CRYPTO_SHANI)
+LIBBITCOINDX_CRYPTO_SHANI = crypto/libbitcoindx_crypto_shani.a
+LIBBITCOINDX_CRYPTO += $(LIBBITCOINDX_CRYPTO_SHANI)
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*.h) $(wildcard secp256k1/src/*.c) $(wildcard secp256k1/include/*)
@@ -68,18 +68,18 @@ $(LIBSECP256K1): $(wildcard secp256k1/src/*.h) $(wildcard secp256k1/src/*.c) $(w
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES += \
-  $(LIBBITCOIN_CRYPTO) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_SERVER) \
-  $(LIBBITCOIN_CLI) \
-  $(LIBBITCOIN_IPC) \
-  $(LIBBITCOIN_WALLET) \
-  $(LIBBITCOIN_WALLET_TOOL) \
-  $(LIBBITCOIN_ZMQ)
+  $(LIBBITCOINDX_CRYPTO) \
+  $(LIBBITCOINDX_UTIL) \
+  $(LIBBITCOINDX_COMMON) \
+  $(LIBBITCOINDX_CONSENSUS) \
+  $(LIBBITCOINDX_SERVER) \
+  $(LIBBITCOINDX_CLI) \
+  $(LIBBITCOINDX_IPC) \
+  $(LIBBITCOINDX_WALLET) \
+  $(LIBBITCOINDX_WALLET_TOOL) \
+  $(LIBBITCOINDX_ZMQ)
 
-lib_LTLIBRARIES = $(LIBBITCOINCONSENSUS)
+lib_LTLIBRARIES = $(LIBBITCOINDXCONSENSUS)
 
 bin_PROGRAMS =
 noinst_PROGRAMS =
@@ -90,31 +90,31 @@ if BUILD_BITCOINDXD
   bin_PROGRAMS += bitcoindxd
 endif
 
-if BUILD_BITCOIN_NODE
+if BUILD_BITCOINDX_NODE
   bin_PROGRAMS += bitcoindx-node
 endif
 
-if BUILD_BITCOIN_CLI
+if BUILD_BITCOINDX_CLI
   bin_PROGRAMS += bitcoindx-cli
 endif
 
-if BUILD_BITCOIN_TX
+if BUILD_BITCOINDX_TX
   bin_PROGRAMS += bitcoindx-tx
 endif
 
 if ENABLE_WALLET
-if BUILD_BITCOIN_WALLET
+if BUILD_BITCOINDX_WALLET
   bin_PROGRAMS += bitcoindx-wallet
 endif
 endif
 
-if BUILD_BITCOIN_UTIL
+if BUILD_BITCOINDX_UTIL
   bin_PROGRAMS += bitcoindx-util
 endif
 
 .PHONY: FORCE check-symbols check-security
 # bitcoindx core #
-BITCOIN_CORE_H = \
+BITCOINDX_CORE_H = \
   addrdb.h \
   addrman.h \
   attributes.h \
@@ -318,7 +318,7 @@ ipc/capnp/libbitcoindx_ipc_a-ipc.$(OBJEXT): $(libbitcoindx_ipc_mpgen_input:=.h)
 # Contains code accessing mempool and chain state that is meant to be separated
 # from wallet and gui code (see node/README.md). Shared code should go in
 # libbitcoindx_common or libbitcoindx_util libraries, instead.
-libbitcoindx_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libbitcoindx_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoindx_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoindx_server_a_SOURCES = \
   addrdb.cpp \
@@ -376,7 +376,7 @@ libbitcoindx_server_a_SOURCES = \
   validation.cpp \
   validationinterface.cpp \
   versionbits.cpp \
-  $(BITCOIN_CORE_H)
+  $(BITCOINDX_CORE_H)
 
 if ENABLE_WALLET
 libbitcoindx_server_a_SOURCES += wallet/init.cpp
@@ -386,7 +386,7 @@ libbitcoindx_server_a_SOURCES += dummywallet.cpp
 endif
 
 if ENABLE_ZMQ
-libbitcoindx_zmq_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libbitcoindx_zmq_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES) $(ZMQ_CFLAGS)
 libbitcoindx_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoindx_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
@@ -399,7 +399,7 @@ endif
 
 # wallet: shared between bitcoindxd and bitcoindx-qt, but only linked
 # when wallet enabled
-libbitcoindx_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(SQLITE_CFLAGS)
+libbitcoindx_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES) $(SQLITE_CFLAGS)
 libbitcoindx_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoindx_wallet_a_SOURCES = \
   wallet/coincontrol.cpp \
@@ -422,7 +422,7 @@ libbitcoindx_wallet_a_SOURCES = \
   wallet/walletdb.cpp \
   wallet/walletutil.cpp \
   wallet/coinselection.cpp \
-  $(BITCOIN_CORE_H)
+  $(BITCOINDX_CORE_H)
 
 if USE_SQLITE
 libbitcoindx_wallet_a_SOURCES += wallet/sqlite.cpp
@@ -431,11 +431,11 @@ if USE_BDB
 libbitcoindx_wallet_a_SOURCES += wallet/bdb.cpp wallet/salvage.cpp
 endif
 
-libbitcoindx_wallet_tool_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbitcoindx_wallet_tool_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 libbitcoindx_wallet_tool_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoindx_wallet_tool_a_SOURCES = \
   wallet/wallettool.cpp \
-  $(BITCOIN_CORE_H)
+  $(BITCOINDX_CORE_H)
 
 # crypto primitives library
 crypto_libbitcoindx_crypto_base_a_CPPFLAGS = $(AM_CPPFLAGS)
@@ -494,7 +494,7 @@ crypto_libbitcoindx_crypto_shani_a_CPPFLAGS += -DENABLE_SHANI
 crypto_libbitcoindx_crypto_shani_a_SOURCES = crypto/sha256_shani.cpp
 
 # consensus: shared between all executables that validate any consensus rules.
-libbitcoindx_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbitcoindx_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 libbitcoindx_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoindx_consensus_a_SOURCES = \
   amount.h \
@@ -531,7 +531,7 @@ libbitcoindx_consensus_a_SOURCES = \
   version.h
 
 # common: shared between bitcoindxd, and bitcoindx-qt and non-server tools
-libbitcoindx_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbitcoindx_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 libbitcoindx_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoindx_common_a_SOURCES = \
   base58.cpp \
@@ -565,12 +565,12 @@ libbitcoindx_common_a_SOURCES = \
   script/signingprovider.cpp \
   script/standard.cpp \
   warnings.cpp \
-  $(BITCOIN_CORE_H)
+  $(BITCOINDX_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libbitcoindx_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbitcoindx_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 libbitcoindx_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoindx_util_a_SOURCES = \
   support/lockedpool.cpp \
@@ -611,7 +611,7 @@ libbitcoindx_util_a_SOURCES = \
   util/string.cpp \
   util/time.cpp \
   util/tokenpipe.cpp \
-  $(BITCOIN_CORE_H)
+  $(BITCOINDX_CORE_H)
 
 if USE_LIBEVENT
 libbitcoindx_util_a_SOURCES += util/url.cpp
@@ -623,20 +623,20 @@ AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
 # cli: shared between bitcoindx-cli and bitcoindx-qt
-libbitcoindx_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbitcoindx_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 libbitcoindx_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoindx_cli_a_SOURCES = \
   compat/stdin.h \
   compat/stdin.cpp \
   rpc/client.cpp \
-  $(BITCOIN_CORE_H)
+  $(BITCOINDX_CORE_H)
 
 nodist_libbitcoindx_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoindxd & bitcoindx-node binaries #
 bitcoindx_daemon_sources = bitcoindxd.cpp
-bitcoindx_bin_cppflags = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+bitcoindx_bin_cppflags = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 bitcoindx_bin_cxxflags = $(AM_CXXFLAGS) $(PIE_FLAGS)
 bitcoindx_bin_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
@@ -645,13 +645,13 @@ bitcoindx_daemon_sources += bitcoindxd-res.rc
 endif
 
 bitcoindx_bin_ldadd = \
-  $(LIBBITCOIN_WALLET) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
+  $(LIBBITCOINDX_WALLET) \
+  $(LIBBITCOINDX_COMMON) \
+  $(LIBBITCOINDX_UTIL) \
   $(LIBUNIVALUE) \
-  $(LIBBITCOIN_ZMQ) \
-  $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_CRYPTO) \
+  $(LIBBITCOINDX_ZMQ) \
+  $(LIBBITCOINDX_CONSENSUS) \
+  $(LIBBITCOINDX_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBLEVELDB_SSE42) \
   $(LIBMEMENV) \
@@ -663,17 +663,17 @@ bitcoindxd_SOURCES = $(bitcoindx_daemon_sources) init/bitcoindxd.cpp
 bitcoindxd_CPPFLAGS = $(bitcoindx_bin_cppflags)
 bitcoindxd_CXXFLAGS = $(bitcoindx_bin_cxxflags)
 bitcoindxd_LDFLAGS = $(bitcoindx_bin_ldflags)
-bitcoindxd_LDADD = $(LIBBITCOIN_SERVER) $(bitcoindx_bin_ldadd)
+bitcoindxd_LDADD = $(LIBBITCOINDX_SERVER) $(bitcoindx_bin_ldadd)
 
 bitcoindx_node_SOURCES = $(bitcoindx_daemon_sources) init/bitcoindx-node.cpp
 bitcoindx_node_CPPFLAGS = $(bitcoindx_bin_cppflags)
 bitcoindx_node_CXXFLAGS = $(bitcoindx_bin_cxxflags)
 bitcoindx_node_LDFLAGS = $(bitcoindx_bin_ldflags)
-bitcoindx_node_LDADD = $(LIBBITCOIN_SERVER) $(bitcoindx_bin_ldadd) $(LIBBITCOIN_IPC) $(LIBMULTIPROCESS_LIBS)
+bitcoindx_node_LDADD = $(LIBBITCOINDX_SERVER) $(bitcoindx_bin_ldadd) $(LIBBITCOINDX_IPC) $(LIBMULTIPROCESS_LIBS)
 
 # bitcoindx-cli binary #
 bitcoindx_cli_SOURCES = bitcoindx-cli.cpp
-bitcoindx_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+bitcoindx_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES) $(EVENT_CFLAGS)
 bitcoindx_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 bitcoindx_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
@@ -682,17 +682,17 @@ bitcoindx_cli_SOURCES += bitcoindx-cli-res.rc
 endif
 
 bitcoindx_cli_LDADD = \
-  $(LIBBITCOIN_CLI) \
+  $(LIBBITCOINDX_CLI) \
   $(LIBUNIVALUE) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO)
+  $(LIBBITCOINDX_UTIL) \
+  $(LIBBITCOINDX_CRYPTO)
 
 bitcoindx_cli_LDADD += $(BOOST_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoindx-tx binary #
 bitcoindx_tx_SOURCES = bitcoindx-tx.cpp
-bitcoindx_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+bitcoindx_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 bitcoindx_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 bitcoindx_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
@@ -702,10 +702,10 @@ endif
 
 bitcoindx_tx_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_CRYPTO) \
+  $(LIBBITCOINDX_COMMON) \
+  $(LIBBITCOINDX_UTIL) \
+  $(LIBBITCOINDX_CONSENSUS) \
+  $(LIBBITCOINDX_CRYPTO) \
   $(LIBSECP256K1)
 
 bitcoindx_tx_LDADD += $(BOOST_LIBS)
@@ -716,7 +716,7 @@ bitcoindx_wallet_SOURCES = bitcoindx-wallet.cpp
 bitcoindx_wallet_CPPFLAGS = $(bitcoindx_bin_cppflags)
 bitcoindx_wallet_CXXFLAGS = $(bitcoindx_bin_cxxflags)
 bitcoindx_wallet_LDFLAGS = $(bitcoindx_bin_ldflags)
-bitcoindx_wallet_LDADD = $(LIBBITCOIN_WALLET_TOOL) $(bitcoindx_bin_ldadd)
+bitcoindx_wallet_LDADD = $(LIBBITCOINDX_WALLET_TOOL) $(bitcoindx_bin_ldadd)
 
 if TARGET_WINDOWS
 bitcoindx_wallet_SOURCES += bitcoindx-wallet-res.rc
@@ -725,7 +725,7 @@ endif
 
 # bitcoindx-util binary #
 bitcoindx_util_SOURCES = bitcoindx-util.cpp
-bitcoindx_util_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+bitcoindx_util_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 bitcoindx_util_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 bitcoindx_util_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
@@ -734,18 +734,18 @@ bitcoindx_util_SOURCES += bitcoindx-util-res.rc
 endif
 
 bitcoindx_util_LDADD = \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
+  $(LIBBITCOINDX_COMMON) \
+  $(LIBBITCOINDX_UTIL) \
   $(LIBUNIVALUE) \
-  $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_CRYPTO) \
+  $(LIBBITCOINDX_CONSENSUS) \
+  $(LIBBITCOINDX_CRYPTO) \
   $(LIBSECP256K1)
 
 bitcoindx_util_LDADD += $(BOOST_LIBS)
 #
 
 # bitcoindxconsensus library #
-if BUILD_BITCOIN_LIBS
+if BUILD_BITCOINDX_LIBS
 include_HEADERS = script/bitcoindxconsensus.h
 libbitcoindxconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libbitcoindx_crypto_base_a_SOURCES) $(libbitcoindx_consensus_a_SOURCES)
 
@@ -755,7 +755,7 @@ endif
 
 libbitcoindxconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
 libbitcoindxconsensus_la_LIBADD = $(LIBSECP256K1)
-libbitcoindxconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libbitcoindxconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOINDX_INTERNAL
 libbitcoindxconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
@@ -840,7 +840,7 @@ EXTRA_DIST += $(libbitcoindx_ipc_mpgen_input)
 %.capnp:
 
 if BUILD_MULTIPROCESS
-LIBBITCOIN_IPC=libbitcoindx_ipc.a
+LIBBITCOINDX_IPC=libbitcoindx_ipc.a
 libbitcoindx_ipc_a_SOURCES = \
   ipc/capnp/init-types.h \
   ipc/capnp/protocol.cpp \
@@ -850,7 +850,7 @@ libbitcoindx_ipc_a_SOURCES = \
   ipc/process.cpp \
   ipc/process.h \
   ipc/protocol.h
-libbitcoindx_ipc_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbitcoindx_ipc_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES)
 libbitcoindx_ipc_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(LIBMULTIPROCESS_CFLAGS)
 
 include $(MPGEN_PREFIX)/include/mpgen.mk

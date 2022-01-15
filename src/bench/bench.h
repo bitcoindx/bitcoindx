@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_BENCH_BENCH_H
-#define BITCOIN_BENCH_BENCH_H
+#ifndef BITCOINDX_BENCH_BENCH_H
+#define BITCOINDX_BENCH_BENCH_H
 
 #include <util/macros.h>
 
@@ -64,4 +64,4 @@ public:
 #define BENCHMARK(n) \
     benchmark::BenchRunner PASTE2(bench_, PASTE2(__LINE__, n))(STRINGIZE(n), n);
 
-#endif // BITCOIN_BENCH_BENCH_H
+#endif // BITCOINDX_BENCH_BENCH_H

@@ -70,7 +70,7 @@
     <ReplaceInFile FilePath="$(ConfigIniOut)"
                   Replace="@USE_SQLITE_TRUE@" By=""></ReplaceInFile>
     <ReplaceInFile FilePath="$(ConfigIniOut)"
-                  Replace="@BUILD_BITCOIN_CLI_TRUE@" By=""></ReplaceInFile>
+                  Replace="@BUILD_BITCOINDX_CLI_TRUE@" By=""></ReplaceInFile>
     <ReplaceInFile FilePath="$(ConfigIniOut)"
                   Replace="@BUILD_BITCOINDXD_TRUE@" By=""></ReplaceInFile>
     <ReplaceInFile FilePath="$(ConfigIniOut)"

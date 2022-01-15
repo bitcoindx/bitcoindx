@@ -22,7 +22,7 @@ The `-debug=ipc` command line option can be used to see requests and responses b
 The multiprocess feature requires [Cap'n Proto](https://capnproto.org/) and [libmultiprocess](https://github.com/chaincodelabs/libmultiprocess) as dependencies. A simple way to get starting using it without installing these dependencies manually is to use the [depends system](../depends) with the `MULTIPROCESS=1` [dependency option](../depends#dependency-options) passed to make:
 
 ```
-cd <BITCOIN_SOURCE_DIRECTORY>
+cd <BITCOINDX_SOURCE_DIRECTORY>
 make -C depends NO_QT=1 MULTIPROCESS=1
 CONFIG_SITE=$PWD/depends/x86_64-pc-linux-gnu/share/config.site ./configure
 make

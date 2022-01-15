@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_EXTERNAL_SIGNER_H
-#define BITCOIN_EXTERNAL_SIGNER_H
+#ifndef BITCOINDX_EXTERNAL_SIGNER_H
+#define BITCOINDX_EXTERNAL_SIGNER_H
 
 #include <univalue.h>
 #include <util/system.h>
@@ -63,4 +63,4 @@ public:
     bool SignTransaction(PartiallySignedTransaction& psbt, std::string& error);
 };
 
-#endif // BITCOIN_EXTERNAL_SIGNER_H
+#endif // BITCOINDX_EXTERNAL_SIGNER_H

@@ -58,7 +58,7 @@ static void SetupCliArgs(ArgsManager& argsman)
     const auto regtestBaseParams = CreateBaseChainParams(CBaseChainParams::REGTEST);
 
     argsman.AddArg("-version", "Print version and exit", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
-    argsman.AddArg("-conf=<file>", strprintf("Specify configuration file. Relative paths will be prefixed by datadir location. (default: %s)", BITCOIN_CONF_FILENAME), ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
+    argsman.AddArg("-conf=<file>", strprintf("Specify configuration file. Relative paths will be prefixed by datadir location. (default: %s)", BITCOINDX_CONF_FILENAME), ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
     argsman.AddArg("-datadir=<dir>", "Specify data directory", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
     argsman.AddArg("-generate", strprintf("Generate blocks immediately, equivalent to RPC getnewaddress followed by RPC generatetoaddress. Optional positional integer arguments are number of blocks to generate (default: %s) and maximum iterations to try (default: %s), equivalent to RPC generatetoaddress nblocks and maxtries arguments. Example: bitcoindx-cli -generate 4 1000", DEFAULT_NBLOCKS, DEFAULT_MAX_TRIES), ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
     argsman.AddArg("-addrinfo", "Get the number of addresses known to the node, per network and total.", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
@@ -760,7 +760,7 @@ static UniValue CallRPC(BaseRequestHandler* rh, const std::string& strMethod, co
         if (failedToGetAuthCookie) {
             throw std::runtime_error(strprintf(
                 "Could not locate RPC credentials. No authentication cookie could be found, and RPC password is not set.  See -rpcpassword and -stdinrpcpass.  Configuration file: (%s)",
-                GetConfigFile(gArgs.GetArg("-conf", BITCOIN_CONF_FILENAME)).string()));
+                GetConfigFile(gArgs.GetArg("-conf", BITCOINDX_CONF_FILENAME)).string()));
         } else {
             throw std::runtime_error("Authorization failed: Incorrect rpcuser or rpcpassword");
         }

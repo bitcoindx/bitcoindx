@@ -3,12 +3,12 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_SCRIPT_BITCOINCONSENSUS_H
-#define BITCOIN_SCRIPT_BITCOINCONSENSUS_H
+#ifndef BITCOINDX_SCRIPT_BITCOINDXCONSENSUS_H
+#define BITCOINDX_SCRIPT_BITCOINDXCONSENSUS_H
 
 #include <stdint.h>
 
-#if defined(BUILD_BITCOIN_INTERNAL) && defined(HAVE_CONFIG_H)
+#if defined(BUILD_BITCOINDX_INTERNAL) && defined(HAVE_CONFIG_H)
 #include <config/bitcoindx-config.h>
   #if defined(_WIN32)
     #if defined(HAVE_DLLEXPORT_ATTRIBUTE)
@@ -19,7 +19,7 @@
   #elif defined(HAVE_DEFAULT_VISIBILITY_ATTRIBUTE)
     #define EXPORT_SYMBOL __attribute__ ((visibility ("default")))
   #endif
-#elif defined(MSC_VER) && !defined(STATIC_LIBBITCOINCONSENSUS)
+#elif defined(MSC_VER) && !defined(STATIC_LIBBITCOINDXCONSENSUS)
   #define EXPORT_SYMBOL __declspec(dllimport)
 #endif
 
@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-#define BITCOINCONSENSUS_API_VER 1
+#define BITCOINDXCONSENSUS_API_VER 1
 
 typedef enum bitcoindxconsensus_error_t
 {
@@ -78,4 +78,4 @@ EXPORT_SYMBOL unsigned int bitcoindxconsensus_version();
 
 #undef EXPORT_SYMBOL
 
-#endif // BITCOIN_SCRIPT_BITCOINCONSENSUS_H
+#endif // BITCOINDX_SCRIPT_BITCOINDXCONSENSUS_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_STREAMS_H
-#define BITCOIN_STREAMS_H
+#ifndef BITCOINDX_STREAMS_H
+#define BITCOINDX_STREAMS_H
 
 #include <serialize.h>
 #include <span.h>
@@ -805,4 +805,4 @@ public:
     }
 };
 
-#endif // BITCOIN_STREAMS_H
+#endif // BITCOINDX_STREAMS_H

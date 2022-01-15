@@ -153,8 +153,8 @@
         <translation type="unfinished">Confirmar encriptación da carteira</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation type="unfinished">Aviso: Si encriptas a túa carteira e perdes a túa frase contrasinal, &lt;b&gt;PERDERÁS TODOS OS TEUS BITCOINS&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINDXS&lt;/b&gt;!</source>
+        <translation type="unfinished">Aviso: Si encriptas a túa carteira e perdes a túa frase contrasinal, &lt;b&gt;PERDERÁS TODOS OS TEUS BITCOINDXS&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>

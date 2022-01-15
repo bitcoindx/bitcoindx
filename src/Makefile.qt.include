@@ -4,7 +4,7 @@
 
 bin_PROGRAMS += qt/bitcoindx-qt
 
-if BUILD_BITCOIN_GUI
+if BUILD_BITCOINDX_GUI
   bin_PROGRAMS += bitcoindx-gui
 endif
 
@@ -88,7 +88,7 @@ QT_MOC_CPP = \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp
 
-BITCOIN_MM = \
+BITCOINDX_MM = \
   qt/macdockiconhandler.mm \
   qt/macnotificationhandler.mm \
   qt/macos_appnap.mm
@@ -104,7 +104,7 @@ QT_QRC = qt/bitcoindx.qrc
 QT_QRC_LOCALE_CPP = qt/qrc_bitcoindx_locale.cpp
 QT_QRC_LOCALE = qt/bitcoindx_locale.qrc
 
-BITCOIN_QT_H = \
+BITCOINDX_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
@@ -217,7 +217,7 @@ RES_ICONS = \
   qt/res/icons/tx_mined.png \
   qt/res/icons/warning.png
 
-BITCOIN_QT_BASE_CPP = \
+BITCOINDX_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
   qt/bitcoindx.cpp \
   qt/bitcoindxaddressvalidator.cpp \
@@ -243,9 +243,9 @@ BITCOIN_QT_BASE_CPP = \
   qt/trafficgraphwidget.cpp \
   qt/utilitydialog.cpp
 
-BITCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
+BITCOINDX_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
 
-BITCOIN_QT_WALLET_CPP = \
+BITCOINDX_QT_WALLET_CPP = \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -276,29 +276,29 @@ BITCOIN_QT_WALLET_CPP = \
   qt/walletmodeltransaction.cpp \
   qt/walletview.cpp
 
-BITCOIN_QT_CPP = $(BITCOIN_QT_BASE_CPP)
+BITCOINDX_QT_CPP = $(BITCOINDX_QT_BASE_CPP)
 if TARGET_WINDOWS
-BITCOIN_QT_CPP += $(BITCOIN_QT_WINDOWS_CPP)
+BITCOINDX_QT_CPP += $(BITCOINDX_QT_WINDOWS_CPP)
 endif
 if ENABLE_WALLET
-BITCOIN_QT_CPP += $(BITCOIN_QT_WALLET_CPP)
+BITCOINDX_QT_CPP += $(BITCOINDX_QT_WALLET_CPP)
 endif # ENABLE_WALLET
 
 RES_ANIMATION = $(wildcard $(srcdir)/qt/res/animation/spinner-*.png)
 
-BITCOIN_RC = qt/res/bitcoindx-qt-res.rc
+BITCOINDX_RC = qt/res/bitcoindx-qt-res.rc
 
-BITCOIN_QT_INCLUDES = -DQT_NO_KEYWORDS -DQT_USE_QSTRINGBUILDER
+BITCOINDX_QT_INCLUDES = -DQT_NO_KEYWORDS -DQT_USE_QSTRINGBUILDER
 
-qt_libbitcoindxqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+qt_libbitcoindxqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES) $(BITCOINDX_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(QR_CFLAGS)
 qt_libbitcoindxqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 qt_libbitcoindxqt_a_OBJCXXFLAGS = $(AM_OBJCXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_libbitcoindxqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
+qt_libbitcoindxqt_a_SOURCES = $(BITCOINDX_QT_CPP) $(BITCOINDX_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(RES_FONTS) $(RES_ICONS) $(RES_ANIMATION)
 if TARGET_DARWIN
-  qt_libbitcoindxqt_a_SOURCES += $(BITCOIN_MM)
+  qt_libbitcoindxqt_a_SOURCES += $(BITCOINDX_MM)
 endif
 
 nodist_qt_libbitcoindxqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
@@ -312,22 +312,22 @@ $(QT_MOC): $(QT_FORMS_H)
 $(qt_libbitcoindxqt_a_OBJECTS) $(qt_bitcoindx_qt_OBJECTS) $(bitcoindx_gui_OBJECTS) : | $(QT_MOC)
 
 # bitcoindx-qt and bitcoindx-gui binaries #
-bitcoindx_qt_cppflags = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+bitcoindx_qt_cppflags = $(AM_CPPFLAGS) $(BITCOINDX_INCLUDES) $(BITCOINDX_QT_INCLUDES) \
   $(QT_INCLUDES) $(QR_CFLAGS)
 bitcoindx_qt_cxxflags = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
 bitcoindx_qt_sources = qt/main.cpp
 if TARGET_WINDOWS
-  bitcoindx_qt_sources += $(BITCOIN_RC)
+  bitcoindx_qt_sources += $(BITCOINDX_RC)
 endif
-bitcoindx_qt_ldadd = qt/libbitcoindxqt.a $(LIBBITCOIN_SERVER)
+bitcoindx_qt_ldadd = qt/libbitcoindxqt.a $(LIBBITCOINDX_SERVER)
 if ENABLE_WALLET
-bitcoindx_qt_ldadd += $(LIBBITCOIN_UTIL) $(LIBBITCOIN_WALLET)
+bitcoindx_qt_ldadd += $(LIBBITCOINDX_UTIL) $(LIBBITCOINDX_WALLET)
 endif
 if ENABLE_ZMQ
-bitcoindx_qt_ldadd += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+bitcoindx_qt_ldadd += $(LIBBITCOINDX_ZMQ) $(ZMQ_LIBS)
 endif
-bitcoindx_qt_ldadd += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+bitcoindx_qt_ldadd += $(LIBBITCOINDX_CLI) $(LIBBITCOINDX_COMMON) $(LIBBITCOINDX_UTIL) $(LIBBITCOINDX_CONSENSUS) $(LIBBITCOINDX_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(NATPMP_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(SQLITE_LIBS)
 bitcoindx_qt_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
@@ -356,7 +356,7 @@ $(srcdir)/qt/bitcoindxstrings.cpp: FORCE
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" $(PYTHON) ../share/qt/extract_strings_qt.py $(libbitcoindx_server_a_SOURCES) $(libbitcoindx_wallet_a_SOURCES) $(libbitcoindx_common_a_SOURCES) $(libbitcoindx_zmq_a_SOURCES) $(libbitcoindx_consensus_a_SOURCES) $(libbitcoindx_util_a_SOURCES)
 
-translate: $(srcdir)/qt/bitcoindxstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_BASE_CPP) qt/bitcoindx.cpp $(BITCOIN_QT_WINDOWS_CPP) $(BITCOIN_QT_WALLET_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: $(srcdir)/qt/bitcoindxstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOINDX_QT_BASE_CPP) qt/bitcoindx.cpp $(BITCOINDX_QT_WINDOWS_CPP) $(BITCOINDX_QT_WALLET_CPP) $(BITCOINDX_QT_H) $(BITCOINDX_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
 	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) -no-obsolete -I $(srcdir) -locations relative $^ -ts $(srcdir)/qt/locale/bitcoindx_en.ts
 	@test -n $(LCONVERT) || echo "lconvert is required for updating translations"
@@ -377,7 +377,7 @@ CLEAN_QT = $(nodist_qt_libbitcoindxqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcd
 CLEANFILES += $(CLEAN_QT)
 
 bitcoindx_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoindxqt_a_OBJECTS) $(qt_bitcoindx_qt_OBJECTS) qt/bitcoindx-qt$(EXEEXT) $(LIBBITCOINQT)
+	rm -f $(CLEAN_QT) $(qt_libbitcoindxqt_a_OBJECTS) $(qt_bitcoindx_qt_OBJECTS) qt/bitcoindx-qt$(EXEEXT) $(LIBBITCOINDXQT)
 
 bitcoindx_qt : qt/bitcoindx-qt$(EXEEXT)
 

@@ -2,9 +2,9 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_COMPAT_SANITY_H
-#define BITCOIN_COMPAT_SANITY_H
+#ifndef BITCOINDX_COMPAT_SANITY_H
+#define BITCOINDX_COMPAT_SANITY_H
 
 bool glibcxx_sanity_test();
 
-#endif // BITCOIN_COMPAT_SANITY_H
+#endif // BITCOINDX_COMPAT_SANITY_H

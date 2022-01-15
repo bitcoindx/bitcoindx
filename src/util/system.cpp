@@ -78,8 +78,8 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char * const BITCOIN_CONF_FILENAME = "bitcoindx.conf";
-const char * const BITCOIN_SETTINGS_FILENAME = "settings.json";
+const char * const BITCOINDX_CONF_FILENAME = "bitcoindx.conf";
+const char * const BITCOINDX_SETTINGS_FILENAME = "settings.json";
 
 ArgsManager gArgs;
 
@@ -518,7 +518,7 @@ bool ArgsManager::GetSettingsPath(fs::path* filepath, bool temp) const
         return false;
     }
     if (filepath) {
-        std::string settings = GetArg("-settings", BITCOIN_SETTINGS_FILENAME);
+        std::string settings = GetArg("-settings", BITCOINDX_SETTINGS_FILENAME);
         *filepath = fsbridge::AbsPathJoin(GetDataDirNet(), temp ? settings + ".tmp" : settings);
     }
     return true;
@@ -901,7 +901,7 @@ bool ArgsManager::ReadConfigFiles(std::string& error, bool ignore_invalid_keys)
         m_config_sections.clear();
     }
 
-    const std::string confPath = GetArg("-conf", BITCOIN_CONF_FILENAME);
+    const std::string confPath = GetArg("-conf", BITCOINDX_CONF_FILENAME);
     fsbridge::ifstream stream(GetConfigFile(confPath));
 
     // ok to not have a config file

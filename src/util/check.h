@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UTIL_CHECK_H
-#define BITCOIN_UTIL_CHECK_H
+#ifndef BITCOINDX_UTIL_CHECK_H
+#define BITCOINDX_UTIL_CHECK_H
 
 #if defined(HAVE_CONFIG_H)
 #include <config/bitcoindx-config.h>
@@ -72,4 +72,4 @@ T get_pure_r_value(T&& val)
 #define Assume(val) ([&]() -> decltype(get_pure_r_value(val)) { auto&& check = (val); return std::forward<decltype(get_pure_r_value(val))>(check); }())
 #endif
 
-#endif // BITCOIN_UTIL_CHECK_H
+#endif // BITCOINDX_UTIL_CHECK_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_BITCOIN_CONFIG_H
-#define BITCOIN_BITCOIN_CONFIG_H
+#ifndef BITCOINDX_BITCOINDX_CONFIG_H
+#define BITCOINDX_BITCOINDX_CONFIG_H
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
@@ -336,4 +336,4 @@
 
 #endif // !WINAPI_FAMILY || WINAPI_FAMILY_DESKTOP_APP
 
-#endif //BITCOIN_BITCOIN_CONFIG_H
+#endif //BITCOINDX_BITCOINDX_CONFIG_H

@@ -750,7 +750,7 @@ git merge commit are mentioned.
 - #7063 `6abf6eb` [Tests] Add prioritisetransaction RPC test (Suhas Daftuar)
 - #7137 `16f4a6e` Tests: Explicitly set chain limits in replace-by-fee test (Suhas Daftuar)
 - #7216 `9572e49` Removed offline testnet DNSSeed 'alexykot.me'. (tnull)
-- #7209 `f3ad812` test: don't override BITCOINDXD and BITCOINCLI if they're set (Wladimir J. van der Laan)
+- #7209 `f3ad812` test: don't override BITCOINDXD and BITCOINDXCLI if they're set (Wladimir J. van der Laan)
 - #7226 `301f16a` Tests: Add more tests to p2p-fullblocktest (Suhas Daftuar)
 - #7153 `9ef7c54` [Tests] Add mempool_limit.py test (Jonas Schnelli)
 - #7170 `453c567` tests: Disable Tor interaction (Wladimir J. van der Laan)

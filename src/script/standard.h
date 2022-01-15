@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_SCRIPT_STANDARD_H
-#define BITCOIN_SCRIPT_STANDARD_H
+#ifndef BITCOINDX_SCRIPT_STANDARD_H
+#define BITCOINDX_SCRIPT_STANDARD_H
 
 #include <pubkey.h>
 #include <script/interpreter.h>
@@ -335,4 +335,4 @@ public:
  */
 std::optional<std::vector<std::tuple<int, CScript, int>>> InferTaprootTree(const TaprootSpendData& spenddata, const XOnlyPubKey& output);
 
-#endif // BITCOIN_SCRIPT_STANDARD_H
+#endif // BITCOINDX_SCRIPT_STANDARD_H

@@ -36,20 +36,20 @@ int64_t GetAdjustedTime()
     return GetTime() + GetTimeOffset();
 }
 
-#define BITCOIN_TIMEDATA_MAX_SAMPLES 200
+#define BITCOINDX_TIMEDATA_MAX_SAMPLES 200
 
 void AddTimeData(const CNetAddr& ip, int64_t nOffsetSample)
 {
     LOCK(g_timeoffset_mutex);
     // Ignore duplicates
     static std::set<CNetAddr> setKnown;
-    if (setKnown.size() == BITCOIN_TIMEDATA_MAX_SAMPLES)
+    if (setKnown.size() == BITCOINDX_TIMEDATA_MAX_SAMPLES)
         return;
     if (!setKnown.insert(ip).second)
         return;
 
     // Add data
-    static CMedianFilter<int64_t> vTimeOffsets(BITCOIN_TIMEDATA_MAX_SAMPLES, 0);
+    static CMedianFilter<int64_t> vTimeOffsets(BITCOINDX_TIMEDATA_MAX_SAMPLES, 0);
     vTimeOffsets.input(nOffsetSample);
     LogPrint(BCLog::NET, "added time data, samples %d, offset %+d (%+d minutes)\n", vTimeOffsets.size(), nOffsetSample, nOffsetSample / 60);
 

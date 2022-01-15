@@ -1,7 +1,7 @@
 AC_PREREQ([2.69])
 define(_CLIENT_VERSION_MAJOR, 22)
 define(_CLIENT_VERSION_MINOR, 0)
-define(_CLIENT_VERSION_BUILD, 1)
+define(_CLIENT_VERSION_BUILD, 2)
 define(_CLIENT_VERSION_RC, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2022)
@@ -19,15 +19,15 @@ if test "x$PKG_CONFIG" = x; then
   AC_MSG_ERROR([pkg-config not found])
 fi
 
-BITCOIN_DAEMON_NAME=bitcoindxd
-BITCOIN_GUI_NAME=bitcoindx-qt
-BITCOIN_CLI_NAME=bitcoindx-cli
-BITCOIN_TX_NAME=bitcoindx-tx
-BITCOIN_UTIL_NAME=bitcoindx-util
-BITCOIN_WALLET_TOOL_NAME=bitcoindx-wallet
+BITCOINDX_DAEMON_NAME=bitcoindxd
+BITCOINDX_GUI_NAME=bitcoindx-qt
+BITCOINDX_CLI_NAME=bitcoindx-cli
+BITCOINDX_TX_NAME=bitcoindx-tx
+BITCOINDX_UTIL_NAME=bitcoindx-util
+BITCOINDX_WALLET_TOOL_NAME=bitcoindx-wallet
 dnl Multi Process
-BITCOIN_MP_NODE_NAME=bitcoindx-node
-BITCOIN_MP_GUI_NAME=bitcoindx-gui
+BITCOINDX_MP_NODE_NAME=bitcoindx-node
+BITCOINDX_MP_GUI_NAME=bitcoindx-gui
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
@@ -37,9 +37,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef BITCOIN_CONFIG_H])
-AH_TOP([#define BITCOIN_CONFIG_H])
-AH_BOTTOM([#endif //BITCOIN_CONFIG_H])
+AH_TOP([#ifndef BITCOINDX_CONFIG_H])
+AH_TOP([#define BITCOINDX_CONFIG_H])
+AH_BOTTOM([#endif //BITCOINDX_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -687,7 +687,7 @@ case $host in
 
          if test "x$use_bdb" != xno && $BREW list --versions berkeley-db4 >/dev/null && test "x$BDB_CFLAGS" = "x" && test "x$BDB_LIBS" = "x"; then
            bdb_prefix=$($BREW --prefix berkeley-db4 2>/dev/null)
-           dnl This must precede the call to BITCOIN_FIND_BDB48 below.
+           dnl This must precede the call to BITCOINDX_FIND_BDB48 below.
            BDB_CFLAGS="-I$bdb_prefix/include"
            BDB_LIBS="-L$bdb_prefix/lib -ldb_cxx-4.8"
          fi
@@ -1293,10 +1293,10 @@ if test "x$enable_fuzz" = "xyes"; then
       */ int not_main() {
      ]])])
 else
-  BITCOIN_QT_INIT
+  BITCOINDX_QT_INIT
 
   dnl sets $bitcoindx_enable_qt, $bitcoindx_enable_qt_test, $bitcoindx_enable_qt_dbus
-  BITCOIN_QT_CONFIGURE([5.9.5])
+  BITCOINDX_QT_CONFIGURE([5.9.5])
 
   dnl Keep a copy of the original $QT_INCLUDES and use it when invoking qt's moc
   QT_INCLUDES_UNSUPPRESSED=$QT_INCLUDES
@@ -1312,7 +1312,7 @@ fi
 if test x$enable_wallet != xno; then
     dnl Check for libdb_cxx only if wallet enabled
     if test "x$use_bdb" != "xno"; then
-      BITCOIN_FIND_BDB48
+      BITCOINDX_FIND_BDB48
       if test x$suppress_external_warnings != xno ; then
         BDB_CPPFLAGS=SUPPRESS_WARNINGS($BDB_CPPFLAGS)
       fi
@@ -1477,7 +1477,7 @@ fi
 dnl QR Code encoding library check
 
 if test "x$use_qr" != xno; then
-  BITCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
+  BITCOINDX_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
 fi
 
 dnl ZMQ check
@@ -1557,8 +1557,8 @@ else
 fi
 
 AM_CONDITIONAL([BUILD_MULTIPROCESS],[test "x$build_multiprocess" = xyes])
-AM_CONDITIONAL([BUILD_BITCOIN_NODE], [test "x$build_multiprocess" = xyes])
-AM_CONDITIONAL([BUILD_BITCOIN_GUI], [test "x$build_multiprocess" = xyes])
+AM_CONDITIONAL([BUILD_BITCOINDX_NODE], [test "x$build_multiprocess" = xyes])
+AM_CONDITIONAL([BUILD_BITCOINDX_GUI], [test "x$build_multiprocess" = xyes])
 
 dnl codegen tools check
 
@@ -1576,23 +1576,23 @@ AM_CONDITIONAL([BUILD_BITCOINDXD], [test x$build_bitcoindxd = xyes])
 AC_MSG_RESULT($build_bitcoindxd)
 
 AC_MSG_CHECKING([whether to build bitcoindx-cli])
-AM_CONDITIONAL([BUILD_BITCOIN_CLI], [test x$build_bitcoindx_cli = xyes])
+AM_CONDITIONAL([BUILD_BITCOINDX_CLI], [test x$build_bitcoindx_cli = xyes])
 AC_MSG_RESULT($build_bitcoindx_cli)
 
 AC_MSG_CHECKING([whether to build bitcoindx-tx])
-AM_CONDITIONAL([BUILD_BITCOIN_TX], [test x$build_bitcoindx_tx = xyes])
+AM_CONDITIONAL([BUILD_BITCOINDX_TX], [test x$build_bitcoindx_tx = xyes])
 AC_MSG_RESULT($build_bitcoindx_tx)
 
 AC_MSG_CHECKING([whether to build bitcoindx-wallet])
-AM_CONDITIONAL([BUILD_BITCOIN_WALLET], [test x$build_bitcoindx_wallet = xyes])
+AM_CONDITIONAL([BUILD_BITCOINDX_WALLET], [test x$build_bitcoindx_wallet = xyes])
 AC_MSG_RESULT($build_bitcoindx_wallet)
 
 AC_MSG_CHECKING([whether to build bitcoindx-util])
-AM_CONDITIONAL([BUILD_BITCOIN_UTIL], [test x$build_bitcoindx_util = xyes])
+AM_CONDITIONAL([BUILD_BITCOINDX_UTIL], [test x$build_bitcoindx_util = xyes])
 AC_MSG_RESULT($build_bitcoindx_util)
 
 AC_MSG_CHECKING([whether to build libraries])
-AM_CONDITIONAL([BUILD_BITCOIN_LIBS], [test x$build_bitcoindx_libs = xyes])
+AM_CONDITIONAL([BUILD_BITCOINDX_LIBS], [test x$build_bitcoindx_libs = xyes])
 if test x$build_bitcoindx_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
   AC_CONFIG_FILES([libbitcoindxconsensus.pc:libbitcoindxconsensus.pc.in])
@@ -1798,14 +1798,14 @@ AC_SUBST(COPYRIGHT_YEAR, _COPYRIGHT_YEAR)
 AC_SUBST(COPYRIGHT_HOLDERS, "_COPYRIGHT_HOLDERS")
 AC_SUBST(COPYRIGHT_HOLDERS_SUBSTITUTION, "_COPYRIGHT_HOLDERS_SUBSTITUTION")
 AC_SUBST(COPYRIGHT_HOLDERS_FINAL, "_COPYRIGHT_HOLDERS_FINAL")
-AC_SUBST(BITCOIN_DAEMON_NAME)
-AC_SUBST(BITCOIN_GUI_NAME)
-AC_SUBST(BITCOIN_CLI_NAME)
-AC_SUBST(BITCOIN_TX_NAME)
-AC_SUBST(BITCOIN_UTIL_NAME)
-AC_SUBST(BITCOIN_WALLET_TOOL_NAME)
-AC_SUBST(BITCOIN_MP_NODE_NAME)
-AC_SUBST(BITCOIN_MP_GUI_NAME)
+AC_SUBST(BITCOINDX_DAEMON_NAME)
+AC_SUBST(BITCOINDX_GUI_NAME)
+AC_SUBST(BITCOINDX_CLI_NAME)
+AC_SUBST(BITCOINDX_TX_NAME)
+AC_SUBST(BITCOINDX_UTIL_NAME)
+AC_SUBST(BITCOINDX_WALLET_TOOL_NAME)
+AC_SUBST(BITCOINDX_MP_NODE_NAME)
+AC_SUBST(BITCOINDX_MP_GUI_NAME)
 
 AC_SUBST(RELDFLAGS)
 AC_SUBST(DEBUG_CPPFLAGS)

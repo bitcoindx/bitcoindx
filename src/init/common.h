@@ -5,8 +5,8 @@
 //! @file
 //! @brief Common init functions shared by bitcoindx-node, bitcoindx-wallet, etc.
 
-#ifndef BITCOIN_INIT_COMMON_H
-#define BITCOIN_INIT_COMMON_H
+#ifndef BITCOINDX_INIT_COMMON_H
+#define BITCOINDX_INIT_COMMON_H
 
 class ArgsManager;
 
@@ -25,4 +25,4 @@ bool StartLogging(const ArgsManager& args);
 void LogPackageVersion();
 } // namespace init
 
-#endif // BITCOIN_INIT_COMMON_H
+#endif // BITCOINDX_INIT_COMMON_H

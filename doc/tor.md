@@ -1,4 +1,4 @@
-# TOR SUPPORT IN BITCOIN
+# TOR SUPPORT IN BITCOINDX
 
 It is possible to run BitcoinDX Core as a Tor onion service, and connect to such services.
 

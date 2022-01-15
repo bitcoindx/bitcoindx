@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_WALLET_WALLET_H
-#define BITCOIN_WALLET_WALLET_H
+#ifndef BITCOINDX_WALLET_WALLET_H
+#define BITCOINDX_WALLET_WALLET_H
 
 #include <amount.h>
 #include <interfaces/chain.h>
@@ -973,4 +973,4 @@ bool AddWalletSetting(interfaces::Chain& chain, const std::string& wallet_name);
 //! Remove wallet name from persistent configuration so it will not be loaded on startup.
 bool RemoveWalletSetting(interfaces::Chain& chain, const std::string& wallet_name);
 
-#endif // BITCOIN_WALLET_WALLET_H
+#endif // BITCOINDX_WALLET_WALLET_H

@@ -122,5 +122,5 @@ int bitcoindxconsensus_verify_script(const unsigned char *scriptPubKey, unsigned
 unsigned int bitcoindxconsensus_version()
 {
     // Just use the API version for now
-    return BITCOINCONSENSUS_API_VER;
+    return BITCOINDXCONSENSUS_API_VER;
 }

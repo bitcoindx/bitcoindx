@@ -164,8 +164,8 @@ Firmar solo es posible con direcciones del tipo 'Legacy'.</translation>
         <translation type="unfinished">Confirmar cifrado del monedero</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation type="unfinished">Advertencia: Si encriptas tu billetera y pierdes tu contraseña, vas a ¡&lt;b&gt;PERDER TODOS TUS BITCOINS&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINDXS&lt;/b&gt;!</source>
+        <translation type="unfinished">Advertencia: Si encriptas tu billetera y pierdes tu contraseña, vas a ¡&lt;b&gt;PERDER TODOS TUS BITCOINDXS&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>

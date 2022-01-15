@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_NET_H
-#define BITCOIN_NET_H
+#ifndef BITCOINDX_NET_H
+#define BITCOINDX_NET_H
 
 #include <addrdb.h>
 #include <addrman.h>
@@ -1245,4 +1245,4 @@ struct NodeEvictionCandidate
  */
 void ProtectEvictionCandidatesByRatio(std::vector<NodeEvictionCandidate>& vEvictionCandidates);
 
-#endif // BITCOIN_NET_H
+#endif // BITCOINDX_NET_H

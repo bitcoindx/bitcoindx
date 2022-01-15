@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_WALLET_SCRIPTPUBKEYMAN_H
-#define BITCOIN_WALLET_SCRIPTPUBKEYMAN_H
+#ifndef BITCOINDX_WALLET_SCRIPTPUBKEYMAN_H
+#define BITCOINDX_WALLET_SCRIPTPUBKEYMAN_H
 
 #include <psbt.h>
 #include <script/descriptor.h>
@@ -626,4 +626,4 @@ public:
     void UpgradeDescriptorCache();
 };
 
-#endif // BITCOIN_WALLET_SCRIPTPUBKEYMAN_H
+#endif // BITCOINDX_WALLET_SCRIPTPUBKEYMAN_H

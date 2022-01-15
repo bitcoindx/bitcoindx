@@ -873,7 +873,7 @@ Build system changes
 - #15611 Add Gitian key for droark (droark)
 - #15626 Update ACK description in CONTRIBUTING.md (jonatack)
 - #15603 Add more tips to productivity.md (gwillen)
-- #15683 Comment for seemingly duplicate LIBBITCOIN_SERVER (Bushstar)
+- #15683 Comment for seemingly duplicate LIBBITCOINDX_SERVER (Bushstar)
 - #15685 rpc-mining: Clarify error messages (MarcoFalke)
 - #15760 Clarify sendrawtransaction::maxfeerate==0 help (MarcoFalke)
 - #15659 fix findFork comment (r8921039)

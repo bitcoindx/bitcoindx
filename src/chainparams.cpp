@@ -86,12 +86,15 @@ public:
         */
         //consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+        //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; //Force difficulty reset every 6 hours by Mr Miyano.
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016. RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
-        consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing. MinerConfirmationWindow is the number of blocks in each threshold state retarget window.
+        //consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016. RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
+        //consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing. MinerConfirmationWindow is the number of blocks in each threshold state retarget window.
+        consensus.nRuleChangeActivationThreshold = 1; // Mr Miyano.
+        consensus.nMinerConfirmationWindow = 4; // Mr Miyano.
         /**
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = Consensus::BIP9Deployment::NEVER_ACTIVE;
@@ -135,14 +138,7 @@ public:
         vSeeds.emplace_back("node0.bitcoindeluxe.org"); // Pieter Wuille, only supports x1, x5, x9, and xd
         vSeeds.emplace_back("node1.bitcoindeluxe.org"); // Matt Corallo, only supports x9
         vSeeds.emplace_back("us1.bitcoindeluxe.org"); // Luke Dashjr
-        /**
-        vSeeds.emplace_back("seed.bitcoindxstats.com"); // Christian Decker, supports x1 - xf
-        vSeeds.emplace_back("seed.bitcoindx.jonasschnelli.ch"); // Jonas Schnelli, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed.btc.petertodd.org"); // Peter Todd, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed.bitcoindx.sprovoost.nl"); // Sjors Provoost
-        vSeeds.emplace_back("dnsseed.emzy.de"); // Stephan Oeste
-        vSeeds.emplace_back("seed.bitcoindx.wiz.biz"); // Jason Maurice
-        */
+
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,26);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -162,6 +158,7 @@ public:
         checkpointData = {
             {
                 { 0, uint256S("0x000000afb24cc8b14164e58b3352a2a2c32155f1d9175f7f850d3bcf4310905a")},
+                { 36800, uint256S("0x000000000000007055e1670db33c56489495abf8161e77daf47b7dfa61bbb481")}, //Checkpoint at block 36800 by Mr Miyano
                 /**
                 { 11111, uint256S("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d")},
                 { 33333, uint256S("0x000000002dd5588a74784eaa7ab0507a18ad16a236e7b1ce69f00d7ddfb5d0a6")},
@@ -212,12 +209,15 @@ public:
         consensus.SegwitHeight = 1;
         consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+        //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; // 6 hours
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
-        consensus.nMinerConfirmationWindow = 2016;
+        //consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
+        //consensus.nMinerConfirmationWindow = 2016;
+        consensus.nRuleChangeActivationThreshold = 1; // Mr Miyano
+        consensus.nMinerConfirmationWindow = 4;
 
         /**
         consensus.BIP16Exception = uint256S("0x00000000dd30457c001f4095d208cc1296b0eed002427aa599874af7a432b105");
@@ -368,12 +368,15 @@ public:
         consensus.BIP66Height = 1;
         consensus.CSVHeight = 1;
         consensus.SegwitHeight = 1;
-        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+        //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; //Force difficulty reset every 6 hours by Mr Miyano.
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016
-        consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
+        //consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016
+        //consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nRuleChangeActivationThreshold = 3; // 80% of 4 by Mr Miyano.
+        consensus.nMinerConfirmationWindow = 4; //Adjust difficulty at every fourth block by Mr Miyano.
         consensus.MinBIP9WarningHeight = 0;
         consensus.powLimit = uint256S("00000377ae000000000000000000000000000000000000000000000000000000");
         /**
@@ -442,12 +445,15 @@ public:
         consensus.SegwitHeight = 0; // SEGWIT is always activated on regtest unless overridden
         consensus.MinBIP9WarningHeight = 0;
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+        //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; // 6 hours
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
-        consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
-        consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
+        //consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
+        //consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
+        consensus.nRuleChangeActivationThreshold = 1; // 80%
+        consensus.nMinerConfirmationWindow = 4; // by Mr Miyano
         /**
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 0;

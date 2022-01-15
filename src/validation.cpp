@@ -1189,11 +1189,8 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     // Force block reward to zero when right shift is undefined.
     if (halvings >= 64)
         return 0;
-    CAmount nSubsidy;
-    if (nHeight == 1)
-        nSubsidy = 8400000000 * COIN;
-    else
-        nSubsidy = 59931 * COIN;
+    //Removed pre mine COIN validation by Mr Miyano
+    CAmount nSubsidy = 59931 * COIN;
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
     nSubsidy >>= halvings;
     return nSubsidy;

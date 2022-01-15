@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CONSENSUS_PARAMS_H
-#define BITCOIN_CONSENSUS_PARAMS_H
+#ifndef BITCOINDX_CONSENSUS_PARAMS_H
+#define BITCOINDX_CONSENSUS_PARAMS_H
 
 #include <uint256.h>
 #include <limits>
@@ -135,4 +135,4 @@ struct Params {
 
 } // namespace Consensus
 
-#endif // BITCOIN_CONSENSUS_PARAMS_H
+#endif // BITCOINDX_CONSENSUS_PARAMS_H

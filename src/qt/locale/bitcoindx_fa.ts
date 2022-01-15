@@ -167,7 +167,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation type="unfinished">تایید رمزگذاری کیف پول</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINDXS&lt;/b&gt;!</source>
         <translation type="unfinished">هشدار: اگر کیف پول خود را رمزگذاری کنید و عبارت خود را گام کنید ، این کار را انجام می دهید &lt;b&gt;تمام کویت های خود را از دست &lt;/b&gt;استفاده کنید!
 </translation>
     </message>

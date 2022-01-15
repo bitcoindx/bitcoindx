@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_WALLET_TRANSACTION_H
-#define BITCOIN_WALLET_TRANSACTION_H
+#ifndef BITCOINDX_WALLET_TRANSACTION_H
+#define BITCOINDX_WALLET_TRANSACTION_H
 
 #include <amount.h>
 #include <primitives/transaction.h>
@@ -355,4 +355,4 @@ public:
     void operator=(CWalletTx const &x) = delete;
 };
 
-#endif // BITCOIN_WALLET_TRANSACTION_H
+#endif // BITCOINDX_WALLET_TRANSACTION_H

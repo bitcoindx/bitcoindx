@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_INTERFACES_NODE_H
-#define BITCOIN_INTERFACES_NODE_H
+#ifndef BITCOINDX_INTERFACES_NODE_H
+#define BITCOINDX_INTERFACES_NODE_H
 
 #include <amount.h>     // For CAmount
 #include <external_signer.h>
@@ -241,4 +241,4 @@ struct BlockTip {
 
 } // namespace interfaces
 
-#endif // BITCOIN_INTERFACES_NODE_H
+#endif // BITCOINDX_INTERFACES_NODE_H

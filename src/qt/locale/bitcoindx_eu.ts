@@ -153,8 +153,8 @@
         <translation type="unfinished">Diruorroaren enkriptazioa berretsi</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation type="unfinished">Abisua: Diruzorroa enkriptatzen baduzu eta zure pasahitza galtzen baduzu, &lt;b&gt;BITCOIN GUZTIAK GALDUKO DITUZU&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINDXS&lt;/b&gt;!</source>
+        <translation type="unfinished">Abisua: Diruzorroa enkriptatzen baduzu eta zure pasahitza galtzen baduzu, &lt;b&gt;BITCOINDX GUZTIAK GALDUKO DITUZU&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>

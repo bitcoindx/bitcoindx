@@ -9,14 +9,14 @@ export LC_ALL=C.UTF-8
 if [ -n "$ANDROID_TOOLS_URL" ]; then
   DOCKER_EXEC make distclean || true
   DOCKER_EXEC ./autogen.sh
-  DOCKER_EXEC ./configure $BITCOIN_CONFIG --prefix=$DEPENDS_DIR/aarch64-linux-android || ( (DOCKER_EXEC cat config.log) && false)
+  DOCKER_EXEC ./configure $BITCOINDX_CONFIG --prefix=$DEPENDS_DIR/aarch64-linux-android || ( (DOCKER_EXEC cat config.log) && false)
   DOCKER_EXEC "cd src/qt && make $MAKEJOBS && ANDROID_HOME=${ANDROID_HOME} ANDROID_NDK_HOME=${ANDROID_NDK_HOME} make apk"
   exit 0
 fi
 
-BITCOIN_CONFIG_ALL="--enable-suppress-external-warnings --disable-dependency-tracking --prefix=$DEPENDS_DIR/$HOST --bindir=$BASE_OUTDIR/bin --libdir=$BASE_OUTDIR/lib"
+BITCOINDX_CONFIG_ALL="--enable-suppress-external-warnings --disable-dependency-tracking --prefix=$DEPENDS_DIR/$HOST --bindir=$BASE_OUTDIR/bin --libdir=$BASE_OUTDIR/lib"
 if [ -z "$NO_WERROR" ]; then
-  BITCOIN_CONFIG_ALL="${BITCOIN_CONFIG_ALL} --enable-werror"
+  BITCOINDX_CONFIG_ALL="${BITCOINDX_CONFIG_ALL} --enable-werror"
 fi
 DOCKER_EXEC "ccache --zero-stats --max-size=$CCACHE_SIZE"
 
@@ -29,13 +29,13 @@ fi
 DOCKER_EXEC mkdir -p "${BASE_BUILD_DIR}"
 export P_CI_DIR="${BASE_BUILD_DIR}"
 
-DOCKER_EXEC "${BASE_ROOT_DIR}/configure" --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
+DOCKER_EXEC "${BASE_ROOT_DIR}/configure" --cache-file=config.cache $BITCOINDX_CONFIG_ALL $BITCOINDX_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
 
 DOCKER_EXEC make distdir VERSION=$HOST
 
 export P_CI_DIR="${BASE_BUILD_DIR}/bitcoindx-$HOST"
 
-DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
+DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOINDX_CONFIG_ALL $BITCOINDX_CONFIG || ( (DOCKER_EXEC cat config.log) && false)
 
 set -o errtrace
 trap 'DOCKER_EXEC "cat ${BASE_SCRATCH_DIR}/sanitizer-output/* 2> /dev/null"' ERR

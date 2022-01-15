@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CRYPTO_COMMON_H
-#define BITCOIN_CRYPTO_COMMON_H
+#ifndef BITCOINDX_CRYPTO_COMMON_H
+#define BITCOINDX_CRYPTO_COMMON_H
 
 #if defined(HAVE_CONFIG_H)
 #include <config/bitcoindx-config.h>
@@ -107,4 +107,4 @@ uint64_t static inline CountBits(uint64_t x)
     return ret;
 }
 
-#endif // BITCOIN_CRYPTO_COMMON_H
+#endif // BITCOINDX_CRYPTO_COMMON_H
