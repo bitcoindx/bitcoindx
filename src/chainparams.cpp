@@ -87,7 +87,7 @@ public:
         //consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; //Force difficulty reset every 6 hours by Mr Miyano.
+        consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; //Force difficulty reset every 1 day(s) by Mr Miyano.
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -210,7 +210,7 @@ public:
         consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; // 6 hours
+        consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // 6 hours
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
@@ -369,7 +369,7 @@ public:
         consensus.CSVHeight = 1;
         consensus.SegwitHeight = 1;
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; //Force difficulty reset every 6 hours by Mr Miyano.
+        consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; //Force difficulty reset every 6 hours by Mr Miyano.
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -446,7 +446,7 @@ public:
         consensus.MinBIP9WarningHeight = 0;
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; // 6 hours
+        consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // 6 hours
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
