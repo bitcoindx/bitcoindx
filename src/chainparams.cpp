@@ -94,7 +94,7 @@ public:
         //consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016. RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
         //consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing. MinerConfirmationWindow is the number of blocks in each threshold state retarget window.
         consensus.nRuleChangeActivationThreshold = 1; // Mr Miyano.
-        consensus.nMinerConfirmationWindow = 4; // Mr Miyano.
+        consensus.nMinerConfirmationWindow = 1; // Mr Miyano.
         /**
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = Consensus::BIP9Deployment::NEVER_ACTIVE;
@@ -217,7 +217,7 @@ public:
         //consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
         //consensus.nMinerConfirmationWindow = 2016;
         consensus.nRuleChangeActivationThreshold = 1; // Mr Miyano
-        consensus.nMinerConfirmationWindow = 4;
+        consensus.nMinerConfirmationWindow = 1;
 
         /**
         consensus.BIP16Exception = uint256S("0x00000000dd30457c001f4095d208cc1296b0eed002427aa599874af7a432b105");
@@ -375,8 +375,8 @@ public:
         consensus.fPowNoRetargeting = false;
         //consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016
         //consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
-        consensus.nRuleChangeActivationThreshold = 3; // 80% of 4 by Mr Miyano.
-        consensus.nMinerConfirmationWindow = 4; //Adjust difficulty at every fourth block by Mr Miyano.
+        consensus.nRuleChangeActivationThreshold = 1; // 100% of 4 by Mr Miyano.
+        consensus.nMinerConfirmationWindow = 1; //Adjust difficulty at every fourth block by Mr Miyano.
         consensus.MinBIP9WarningHeight = 0;
         consensus.powLimit = uint256S("00000377ae000000000000000000000000000000000000000000000000000000");
         /**
@@ -453,7 +453,7 @@ public:
         //consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
         //consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
         consensus.nRuleChangeActivationThreshold = 1; // 80%
-        consensus.nMinerConfirmationWindow = 4; // by Mr Miyano
+        consensus.nMinerConfirmationWindow = 1; // by Mr Miyano
         /**
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 0;
