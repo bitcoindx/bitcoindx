@@ -169,6 +169,7 @@ public:
                 { 36906, uint256S("000000000000001f4093459e177d276ece931fb642a55a182cd67ff6f7565342")},
                 { 36905, uint256S("000000000000003928cad72b75ff8278f3b460341cec60da319488b5efba7c2d")},
                 { 36917, uint256S("000000000000000a9286233c41129ac6487ad2db64b40af69ed00d01e0f1b077")},
+                { 36920, uint256S("0000000000000038188517bc14745ec8443bbd9905b2f284c945645b6d798fee")},
                 /**
                 { 11111, uint256S("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d")},
                 { 33333, uint256S("0x000000002dd5588a74784eaa7ab0507a18ad16a236e7b1ce69f00d7ddfb5d0a6")},
@@ -193,9 +194,9 @@ public:
 
         chainTxData = ChainTxData{
             // Data from RPC: getchaintxstats 4096 00000000000000000008a89e854d57e5667df88f1cdef6fde2fbca1de5b639ad
-            /* nTime    */ 1642409335, // Old value = 1639520204
-            /* nTxCount */ 43349, // Old value = 0
-            /* dTxRate  */ 0.009562577476077449, // Old value = 2.424920418708139
+            /* nTime    */ 1642410475, // Old value = 1639520204
+            /* nTxCount */ 43355, // Old value = 0
+            /* dTxRate  */ 0.009552188855565137, // Old value = 2.424920418708139
         };
     }
 };
