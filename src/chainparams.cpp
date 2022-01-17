@@ -72,7 +72,8 @@ public:
         consensus.BIP66Height = 1;
         consensus.CSVHeight = 1;
         consensus.SegwitHeight = 1;
-        consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
+        consensus.MinBIP9WarningHeight = 19; // v22.0.8 - segwit activation height + miner confirmation window
+        //consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         /**
         consensus.BIP16Exception = uint256S("0x00000000000002dc756eebf4f49723ed8d30cc28a5f108eb94b1ba88ac4f9c22");
         consensus.BIP34Height = 227931;
