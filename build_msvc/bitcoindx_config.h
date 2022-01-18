@@ -254,7 +254,7 @@
 #define PACKAGE_NAME "BitcoinDX Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "BitcoinDX Core 22.0.8"
+#define PACKAGE_STRING "BitcoinDX Core 22.0.9"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "bitcoindx"
@@ -263,7 +263,7 @@
 #define PACKAGE_URL "https://bitcoin-dx.org/"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "22.0.8"
+#define PACKAGE_VERSION "22.0.9"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */

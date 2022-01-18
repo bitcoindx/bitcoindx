@@ -19,10 +19,10 @@ import time
 
 # The block reward of coinbaseoutput.nValue (50) BTC/block matures after
 # COINBASE_MATURITY (100) blocks. Therefore, after mining 101 blocks we expect
-# node 0 to have a balance of (BLOCKS - COINBASE_MATURITY) * 50 BTC/block.
+# node 0 to have a balance of (BLOCKS - COINBASE_MATURITY) * 59931 BCDX/block.
 BLOCKS = COINBASE_MATURITY + 1
-BALANCE = (BLOCKS - 10) * 59931 
-# Changed to 10 & 59931 by Team DX.
+BALANCE = (BLOCKS - 100) * 59931 
+# v22.0.9 Reverted to 100 & 59931 by Team DX.
 # BALANCE = (BLOCKS - 100) * 50
 
 JSON_PARSING_ERROR = 'error: Error parsing JSON: foo'

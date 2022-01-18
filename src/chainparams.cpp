@@ -72,7 +72,7 @@ public:
         consensus.BIP66Height = 1;
         consensus.CSVHeight = 1;
         consensus.SegwitHeight = 1;
-        consensus.MinBIP9WarningHeight = 19; // v22.0.8 - segwit activation height + miner confirmation window
+        consensus.MinBIP9WarningHeight = 19; // v22.0.9 - segwit activation height + miner confirmation window
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 0.05 * 24 * 60 * 60; // Diff re-adjustment target; 1.2 hours = 4320 seconds
         consensus.nPowTargetSpacing = 4 * 60; //Block generation target; 240 seconds. If blocks are generated quicker than this value, diff will increase and vice versa.
@@ -160,6 +160,7 @@ public:
                 { 36917, uint256S("000000000000000a9286233c41129ac6487ad2db64b40af69ed00d01e0f1b077")},
                 { 36920, uint256S("0000000000000038188517bc14745ec8443bbd9905b2f284c945645b6d798fee")},
                 { 37061, uint256S("000000000000001f80d68b840c9891a0cfd2f1133f3ebf80c41f7b2f54840abb")},
+                { 37209, uint256S("0000000000000005eb5b0640cb1fa91920ea7865af15c6b963481bd833dcd1a2")},
             }
         };
 
@@ -169,9 +170,9 @@ public:
 
         chainTxData = ChainTxData{
             // Data from RPC: getchaintxstats 4096 000000000000001f80d68b840c9891a0cfd2f1133f3ebf80c41f7b2f54840abb
-            /* nTime    */ 1642462079, // OG value = 1639520204
-            /* nTxCount */ 43648, // OG value = 0
-            /* dTxRate  */ 0.009059425909303991, // OG value = 2.424920418708139
+            /* nTime    */ 1642499721, // OG value = 1639520204
+            /* nTxCount */ 43918, // OG value = 0
+            /* dTxRate  */ 0.00872285009999535, // OG value = 2.424920418708139
         };
     }
 };
@@ -193,7 +194,7 @@ public:
         consensus.BIP66Height = 1;
         consensus.CSVHeight = 1;
         consensus.SegwitHeight = 1;
-        consensus.MinBIP9WarningHeight = 19; // v22.0.8 - segwit activation height + miner confirmation window
+        consensus.MinBIP9WarningHeight = 19; // v22.0.9 - segwit activation height + miner confirmation window
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 0.05 * 24 * 60 * 60; // Diff re-adjustment target; 1.2 hours = 4320 seconds
         consensus.nPowTargetSpacing = 4 * 60; //Block generation target; 240 seconds. If blocks are generated quicker than this value, diff will increase and vice versa.
@@ -343,7 +344,7 @@ public:
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 10;
         consensus.nMinerConfirmationWindow = 18; // Adjust difficulty at every fourth block by Mr Miyano.
-        consensus.MinBIP9WarningHeight = 19; // v22.0.8
+        consensus.MinBIP9WarningHeight = 19; // v22.0.9
         consensus.powLimit = uint256S("00000377ae000000000000000000000000000000000000000000000000000000");
         
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
@@ -414,7 +415,7 @@ public:
         */
         consensus.CSVHeight = 432; // CSV activated on regtest (Used in rpc activation tests)
         consensus.SegwitHeight = 0; // SEGWIT is always activated on regtest unless overridden
-        consensus.MinBIP9WarningHeight = 18; // v22.0.8
+        consensus.MinBIP9WarningHeight = 18; // v22.0.9
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 0.05 * 24 * 60 * 60; // Diff re-adjustment target; 1.2 hours = 4320 seconds
         consensus.nPowTargetSpacing = 4 * 60; // Block generation target; 240 seconds. If blocks are generated quicker than this value, diff will increase and vice versa.
