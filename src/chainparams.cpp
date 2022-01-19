@@ -80,7 +80,6 @@ public:
         consensus.fPowNoRetargeting = false;
         //consensus.nRuleChangeActivationThreshold = 10; // RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
         //consensus.nMinerConfirmationWindow = 18; // nPowTargetTimespan / nPowTargetSpacing. MinerConfirmationWindow is the number of blocks in each threshold state retarget window.
-        //consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         //consensus.nPowTargetSpacing = 10 * 60;
         consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016. RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
@@ -150,17 +149,18 @@ public:
             {
                 { 0, uint256S("0x000000afb24cc8b14164e58b3352a2a2c32155f1d9175f7f850d3bcf4310905a")},
                 { 36800, uint256S("0x000000000000007055e1670db33c56489495abf8161e77daf47b7dfa61bbb481")},
-                { 36863, uint256S("00000000000000a87a5d13e4009622db688a093b59d416a398b8f4c574533901")}, 
-                { 36866, uint256S("0000000000000086082dd7b728f55207c5d5e1948e21d8587b1f02d2a2601bbe")}, 
-                { 36880, uint256S("0000000000000028e11435a1932657e21d1b82ba77a8fe0511d6ae8d256db37f")}, 
-                { 36900, uint256S("000000000000000544c55a78bb605c314bc659a42121e9bc57bcdf1c892a232f")},
-                { 36900, uint256S("000000000000000544c55a78bb605c314bc659a42121e9bc57bcdf1c892a232f")},
-                { 36906, uint256S("000000000000001f4093459e177d276ece931fb642a55a182cd67ff6f7565342")},
-                { 36905, uint256S("000000000000003928cad72b75ff8278f3b460341cec60da319488b5efba7c2d")},
-                { 36917, uint256S("000000000000000a9286233c41129ac6487ad2db64b40af69ed00d01e0f1b077")},
-                { 36920, uint256S("0000000000000038188517bc14745ec8443bbd9905b2f284c945645b6d798fee")},
-                { 37061, uint256S("000000000000001f80d68b840c9891a0cfd2f1133f3ebf80c41f7b2f54840abb")},
-                { 37209, uint256S("0000000000000005eb5b0640cb1fa91920ea7865af15c6b963481bd833dcd1a2")},
+                { 36863, uint256S("0x00000000000000a87a5d13e4009622db688a093b59d416a398b8f4c574533901")}, 
+                { 36866, uint256S("0x0000000000000086082dd7b728f55207c5d5e1948e21d8587b1f02d2a2601bbe")}, 
+                { 36880, uint256S("0x0000000000000028e11435a1932657e21d1b82ba77a8fe0511d6ae8d256db37f")}, 
+                { 36900, uint256S("0x000000000000000544c55a78bb605c314bc659a42121e9bc57bcdf1c892a232f")},
+                { 36900, uint256S("0x000000000000000544c55a78bb605c314bc659a42121e9bc57bcdf1c892a232f")},
+                { 36906, uint256S("0x000000000000001f4093459e177d276ece931fb642a55a182cd67ff6f7565342")},
+                { 36905, uint256S("0x000000000000003928cad72b75ff8278f3b460341cec60da319488b5efba7c2d")},
+                { 36917, uint256S("0x000000000000000a9286233c41129ac6487ad2db64b40af69ed00d01e0f1b077")},
+                { 36920, uint256S("0x0000000000000038188517bc14745ec8443bbd9905b2f284c945645b6d798fee")},
+                { 37061, uint256S("0x000000000000001f80d68b840c9891a0cfd2f1133f3ebf80c41f7b2f54840abb")},
+                { 37209, uint256S("0x0000000000000005eb5b0640cb1fa91920ea7865af15c6b963481bd833dcd1a2")},
+                { 37486, uint256S("0x0000000000000046d211b96c0e0c92857620903dd2db100e9105bd5f969769a9")}, // .09 patch checkpoint.
             }
         };
 
@@ -169,10 +169,10 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Data from RPC: getchaintxstats 4096 000000000000001f80d68b840c9891a0cfd2f1133f3ebf80c41f7b2f54840abb
-            /* nTime    */ 1642499721, // OG value = 1639520204
-            /* nTxCount */ 43918, // OG value = 0
-            /* dTxRate  */ 0.00872285009999535, // OG value = 2.424920418708139
+            // Data from RPC: getchaintxstats 4096 0000000000000046d211b96c0e0c92857620903dd2db100e9105bd5f969769a9
+            /* nTime    */ 1642590868, // OG value = 1639520204
+            /* nTxCount */ 44381, // OG value = 0
+            /* dTxRate  */ 0.007925037031402207, // OG value = 2.424920418708139
         };
     }
 };
