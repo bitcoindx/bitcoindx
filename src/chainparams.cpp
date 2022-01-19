@@ -72,19 +72,19 @@ public:
         consensus.BIP66Height = 1;
         consensus.CSVHeight = 1;
         consensus.SegwitHeight = 1;
-        consensus.MinBIP9WarningHeight = 19; // v22.0.9 - segwit activation height + miner confirmation window
+        consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 0.05 * 24 * 60 * 60; // Diff re-adjustment target; 1.2 hours = 4320 seconds
         consensus.nPowTargetSpacing = 4 * 60; //Block generation target; 240 seconds. If blocks are generated quicker than this value, diff will increase and vice versa.
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 10; // RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
-        consensus.nMinerConfirmationWindow = 18; // nPowTargetTimespan / nPowTargetSpacing. MinerConfirmationWindow is the number of blocks in each threshold state retarget window.
+        //consensus.nRuleChangeActivationThreshold = 10; // RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
+        //consensus.nMinerConfirmationWindow = 18; // nPowTargetTimespan / nPowTargetSpacing. MinerConfirmationWindow is the number of blocks in each threshold state retarget window.
         //consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         //consensus.nPowTargetSpacing = 10 * 60;
-        //consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016. RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
-        //consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing. MinerConfirmationWindow is the number of blocks in each threshold state retarget window.
+        consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016. RuleChangeActivationThreshold is the number of blocks for which the condition must be true in order to lock in a rule change.
+        consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing. MinerConfirmationWindow is the number of blocks in each threshold state retarget window.
 
         /**
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
@@ -194,18 +194,18 @@ public:
         consensus.BIP66Height = 1;
         consensus.CSVHeight = 1;
         consensus.SegwitHeight = 1;
-        consensus.MinBIP9WarningHeight = 19; // v22.0.9 - segwit activation height + miner confirmation window
+        consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 0.05 * 24 * 60 * 60; // Diff re-adjustment target; 1.2 hours = 4320 seconds
         consensus.nPowTargetSpacing = 4 * 60; //Block generation target; 240 seconds. If blocks are generated quicker than this value, diff will increase and vice versa.
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 10; // Mr Miyano
-        consensus.nMinerConfirmationWindow = 18;
+        //consensus.nRuleChangeActivationThreshold = 10; // Mr Miyano
+        //consensus.nMinerConfirmationWindow = 18;
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         //consensus.nPowTargetSpacing = 10 * 60;
-        //consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
-        //consensus.nMinerConfirmationWindow = 2016;
+        consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
+        consensus.nMinerConfirmationWindow = 2016;
         
         /**
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
@@ -342,15 +342,15 @@ public:
         consensus.nPowTargetSpacing = 4 * 60; // Block generation target; 240 seconds. If blocks are generated quicker than this value, diff will increase and vice versa.
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 10;
-        consensus.nMinerConfirmationWindow = 18; // Adjust difficulty at every fourth block by Mr Miyano.
-        consensus.MinBIP9WarningHeight = 19; // v22.0.9
+        //consensus.nRuleChangeActivationThreshold = 10;
+        //consensus.nMinerConfirmationWindow = 18; // Adjust difficulty at every fourth block by Mr Miyano.
+        consensus.MinBIP9WarningHeight = 0; // v22.0.10
         consensus.powLimit = uint256S("00000377ae000000000000000000000000000000000000000000000000000000");
         
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         //consensus.nPowTargetSpacing = 10 * 60;
-        //consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016
-        //consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nRuleChangeActivationThreshold = 1815; // 90% of 2016
+        consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
         /**
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = Consensus::BIP9Deployment::NEVER_ACTIVE;
@@ -415,18 +415,18 @@ public:
         */
         consensus.CSVHeight = 432; // CSV activated on regtest (Used in rpc activation tests)
         consensus.SegwitHeight = 0; // SEGWIT is always activated on regtest unless overridden
-        consensus.MinBIP9WarningHeight = 18; // v22.0.9
+        consensus.MinBIP9WarningHeight = 0; // v22.0.10
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 0.05 * 24 * 60 * 60; // Diff re-adjustment target; 1.2 hours = 4320 seconds
         consensus.nPowTargetSpacing = 4 * 60; // Block generation target; 240 seconds. If blocks are generated quicker than this value, diff will increase and vice versa.
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
-        consensus.nRuleChangeActivationThreshold = 10;
-        consensus.nMinerConfirmationWindow = 18; // Team DX v22.0.7
+        //consensus.nRuleChangeActivationThreshold = 10;
+        //consensus.nMinerConfirmationWindow = 18; // Team DX v22.0.7
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         //consensus.nPowTargetSpacing = 10 * 60;
-        //consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
-        //consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
+        consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
+        consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
         /**
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 0;
