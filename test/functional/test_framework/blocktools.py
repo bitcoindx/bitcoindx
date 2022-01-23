@@ -54,7 +54,7 @@ TIME_GENESIS_BLOCK = 1639520204
 
 # Coinbase transaction outputs can only be spent after this number of new blocks (network rule)
 COINBASE_MATURITY = 100
-# v22.0.10 Reverted to 10 from 100 by Team DX.
+# v22.0.11 Reverted to 10 from 100 by Team DX.
 
 # From BIP141
 WITNESS_COMMITMENT_HEADER = b"\xaa\x21\xa9\xed"

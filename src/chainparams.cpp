@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The BitcoinDX Core developers
+// Copyright (c) 2021-2022 The Bitcoin DX Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -161,6 +161,11 @@ public:
                 { 37061, uint256S("0x000000000000001f80d68b840c9891a0cfd2f1133f3ebf80c41f7b2f54840abb")},
                 { 37209, uint256S("0x0000000000000005eb5b0640cb1fa91920ea7865af15c6b963481bd833dcd1a2")},
                 { 37486, uint256S("0x0000000000000046d211b96c0e0c92857620903dd2db100e9105bd5f969769a9")}, // .09 patch checkpoint.
+                { 38400, uint256S("0x00000000000000436a4cb5d0cb924a97a2eb835a46304c1e484045a5ed69881a")}, // .11 patch checkpoint.
+                { 38411, uint256S("0x000000000000005307815dee1eb7af04e86de541f168e3033126be114881599c")}, // .11 patch checkpoint.
+                { 38413, uint256S("0x000000000000001f489872325efeb3a6df7288368d6c7c2baa531ef5e7ec724d")}, // .11 patch checkpoint.
+                { 38420, uint256S("0x000000000000002ec3594272d3e798199a4ac05dc4157dec0d85c867f114a272")}, // .11 patch checkpoint.
+                { 38626, uint256S("0x00000000000000a05f283c7eecca94f7254c26df3d84deb2a8be1309e99543ae")}, // .11 patch checkpoint.
             }
         };
 
@@ -170,9 +175,9 @@ public:
 
         chainTxData = ChainTxData{
             // Data from RPC: getchaintxstats 4096 0000000000000046d211b96c0e0c92857620903dd2db100e9105bd5f969769a9
-            /* nTime    */ 1642590868, // OG value = 1639520204
-            /* nTxCount */ 44381, // OG value = 0
-            /* dTxRate  */ 0.007925037031402207, // OG value = 2.424920418708139
+            /* nTime    */ 1642910757, // OG value = 1639520204
+            /* nTxCount */ 46552, // OG value = 0
+            /* dTxRate  */ 0.006309258651936112, // OG value = 2.424920418708139
         };
     }
 };
@@ -344,7 +349,7 @@ public:
         consensus.fPowNoRetargeting = false;
         //consensus.nRuleChangeActivationThreshold = 10;
         //consensus.nMinerConfirmationWindow = 18; // Adjust difficulty at every fourth block by Mr Miyano.
-        consensus.MinBIP9WarningHeight = 0; // v22.0.10
+        consensus.MinBIP9WarningHeight = 0;
         consensus.powLimit = uint256S("00000377ae000000000000000000000000000000000000000000000000000000");
         
         //consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
@@ -413,9 +418,9 @@ public:
         consensus.BIP65Height = 1; // BIP65 activated on regtest (Used in functional tests)
         consensus.BIP66Height = 1; // BIP66 activated on regtest (Used in functional tests)
         */
-        consensus.CSVHeight = 432; // CSV activated on regtest (Used in rpc activation tests)
+        consensus.CSVHeight = 1; // CSV activated on regtest (Used in rpc activation tests)
         consensus.SegwitHeight = 0; // SEGWIT is always activated on regtest unless overridden
-        consensus.MinBIP9WarningHeight = 0; // v22.0.10
+        consensus.MinBIP9WarningHeight = 0; // v22.0.11
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 0.05 * 24 * 60 * 60; // Diff re-adjustment target; 1.2 hours = 4320 seconds
         consensus.nPowTargetSpacing = 4 * 60; // Block generation target; 240 seconds. If blocks are generated quicker than this value, diff will increase and vice versa.
