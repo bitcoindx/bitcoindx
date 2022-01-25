@@ -5,15 +5,15 @@ Source code has been generalized, allowing forking without too much hassle. Simp
 
 Max Volume: 21,000,000,000
 
-Algorithm:	Sha256
+Algorithm:	SHA256
 
-Version:	22.0
+Version:	22.0.11
 
-Blockchain Interval:	10 Minutes
+Difficulty Adjust Interval:	18 Blocks
 
 Blockchain Rewards:	59,931.00
 
-Halving Interval:	~2 Years
+Halving Interval:	105,120 Blocks
 
 # Website
 https://bitcoin-dx.org
